@@ -1,0 +1,5 @@
+A sample README.  Will not get full marks for an assignment.
+
+Use for the interactive tar presentation.
+
+Type make to compile hello.c, and type ./hello to run it.

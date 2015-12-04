@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#sample -->
+<html dir="ltr" lang="en" xml:lang="en" class="yui3-js-enabled"><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CMPUT 201 (Winter 2012 LAB LEC): Assignment 1 - Hints and Resources</title>
+    <link rel="shortcut icon" href="https://eclass.srv.ualberta.ca/theme/image.php/eclass/theme/1420203937/favicon">
+    
+<meta name="keywords" content="moodle, CMPUT 201 (Winter 2012 LAB LEC): Assignment 1 - Hints and Resources">
+<script type="text/javascript" async="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/analytics.js"></script><script async="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/gtm.js"></script><script type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/eclass.srv.ualberta.ca","sesskey":"RUgegGpJFe","loadingicon":"https:\/\/eclass.srv.ualberta.ca\/theme\/image.php\/eclass\/core\/1420203937\/i\/loading_small","themerev":"1420203937","slasharguments":1,"theme":"eclass","jsrev":"1420203937","svgicons":true,"developerdebug":true};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''};if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else me.path=component+'/'+component+'.'+me.type};
+YUI_config = {"debug":true,"base":"https:\/\/eclass.srv.ualberta.ca\/lib\/yuilib\/3.13.0\/","comboBase":"https:\/\/eclass.srv.ualberta.ca\/theme\/yui_combo.php?","combine":true,"filter":"RAW","insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/eclass.srv.ualberta.ca\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/eclass.srv.ualberta.ca\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/eclass.srv.ualberta.ca\/theme\/yui_combo.php?m\/1420203937\/","combine":true,"comboBase":"https:\/\/eclass.srv.ualberta.ca\/theme\/yui_combo.php?","ext":false,"root":"m\/1420203937\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":"DEBUG","modules":{"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-dock":{"requires":["base","node","event-custom","event-mouseenter","event-resize","escape","moodle-core-dock-loader"]},"moodle-core-dock-loader":{"requires":["escape"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-formchangechecker":{"requires":["base","event-focus"]},"moodle-core-formautosubmit":{"requires":["base","event-key"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","event-key","dd-plugin","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-calendar-eventmanager":{"requires":["base","node","event-mouseenter","overlay","moodle-calendar-eventmanager-skin"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-block_navigation-navigation":{"requires":["base","io-base","node","event-synthetic","event-delegate","json-parse"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-notification-alert"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-theme_bootstrapbase-bootstrap":{"requires":["node","selector-css3"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/eclass.srv.ualberta.ca\/lib\/javascript.php\/1420203937\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker"]}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+<link rel="stylesheet" type="text/css" href="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/yui_combo.php"><script type="text/javascript" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/yui_combo(1).php"></script><script type="text/javascript" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/yui_combo(2).php"></script><script charset="utf-8" id="yui_3_13_0_2_1421671471805_2" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/yui_combo(3).php" async=""></script><script charset="utf-8" id="yui_3_13_0_3_1421671471805_8" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/yui_combo(4).php" async=""></script><script charset="utf-8" id="yui_3_13_0_2_1421671471805_4" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/yui_combo(5).php" async=""></script><link charset="utf-8" rel="stylesheet" id="yui_3_13_0_3_1421671471805_194" href="https://eclass.srv.ualberta.ca/theme/yui_combo.php?3.13.0/cssbutton/cssbutton-min.css"><script charset="utf-8" id="yui_3_13_0_3_1421671471805_195" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/yui_combo(6).php" async=""></script><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/all">
+<script type="text/javascript" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/javascript-static.js"></script>
+
+<style type="text/css"><!--
+.resourcepdf{overflow: auto;} /* Temporary fix for iOS PDF scrolling bug - Added by Jordan Schulz - 2 Sep 2011 */
+--></style>    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+</head>
+
+<body id="page-mod-page-view" class="format-topics  path-mod path-mod-page safari dir-ltr lang-en yui-skin-sam yui3-skin-sam eclass-srv-ualberta-ca pagelayout-incourse course-3344 context-353271 cmid-155136 category-1065 has-region-side-pre used-region-side-pre has-region-side-post empty-region-side-post jsenabled">
+
+<div class="skiplinks"><a class="skip" href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+<!-- Google Tag Manager -->
+<noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-T7MGWQ"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T7MGWQ');</script>
+<!-- End Google Tag Manager -->
+<header role="banner" class="navbar navbar-fixed-top moodle-has-zindex"><nav role="navigation" class="navbar-inner"><div class="container-fluid"><img src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/ua-logo" class="uofa-logo" height="40px"><div class="nav-brand"><a class="brand" href="https://eclass.srv.ualberta.ca/">eClass</a></div><div class="pull-right"><ul class="nav"><li class="nav-menu "><a title="Home" target="_parent" href="https://eclass.srv.ualberta.ca/my/index.php"><span><div class="nav-icon glyphicons home"></div><span>Home</span></span></a></li><li class="nav-menu "><a title="Email" target="_blank" href="https://mail.google.com/a/ualberta.ca"><span><div class="nav-icon glyphicons envelope"></div><span>Email</span></span></a></li><li class="nav-menu "><a title="Help" target="_blank" href="https://support.ctl.ualberta.ca/"><span><div class="nav-icon glyphicons circle_question_mark"></div><span>Help</span></span></a></li></ul><ul class="nav pull-right">
+<li></li>
+</ul><div class="scroll-top pull-right" title="Scroll to top"><span class="glyphicons collapse_top"></span></div><div class="logininfo"><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138" title="View profile" class="userloginprofile"><img src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/f2" alt="Picture of Mohammad Sirajee" title="Picture of Mohammad Sirajee" class="nav_userpicture defaultuserpic" width="35" height="35">Mohammad Sirajee</a> <small>(</small> <a href="https://eclass.srv.ualberta.ca/login/logout.php?sesskey=RUgegGpJFe">Log out</a> <small>)</small></div></div></div></nav><nav class="mobile-nav"><ul class="view-selector"><li><label class="toggle toggle-navigation" for="toggle-left" onclick=""><div class="mobile-nav-icon glyphicons list"></div><span>Navigation</span></label></li><li><label class="toggle toggle-content" for="toggle-center" onclick=""><div class="mobile-nav-icon glyphicons book"></div><span>Content</span></label></li><li><label class="toggle toggle-profile" for="toggle-profile" onclick=""><div class="mobile-nav-icon glyphicons user"></div><span>Profile</span></label></li><div class="active-indicator"></div></ul></nav></header>
+<div id="page" class="container-fluid" data-page-count="4">
+    <header id="page-header" class="clearfix">
+        <div id="course-header">
+                    </div>
+    </header>
+
+    <div id="page-content" class="row-fluid" style="transition: 0s; -webkit-transition: 0s;">
+        <input id="toggle-left" name="toggle" type="radio" hidden="true">
+        <input id="toggle-center" name="toggle" type="radio" checked="" hidden="true">
+        <input id="toggle-right" name="toggle" type="radio" hidden="true">
+        <input id="toggle-profile" name="toggle" type="radio" hidden="true">
+        <aside id="block-region-side-pre" class="span3 pull-left desktop-first-column column3 block-region" data-blockregion="side-pre" data-droptarget="1"><a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#sb-1" class="skip-block">Skip Navigation</a><div id="inst4" class="block_navigation  block" role="navigation" data-block="navigation" data-instanceid="4" aria-labelledby="instance-4-header"><div class="header"><div class="title" id="yui_3_13_0_3_1421671471805_207"><div class="block_action"><img class="block-hider-hide" tabindex="0" alt="Hide Navigation block" title="Hide Navigation block" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/switch_minus"><img class="block-hider-show" tabindex="0" alt="Show Navigation block" title="Show Navigation block" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/switch_plus"></div><h2 id="instance-4-header">Navigation</h2></div></div><div class="content"><ul class="block_tree list"><li class="type_unknown depth_1 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand navigation_node"><a href="https://eclass.srv.ualberta.ca/my/">My home</a></p><ul><li class="type_setting depth_2 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/?redirect=0"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Site home</a></p></li>
+<li class="type_course depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span title="eClass Powered by Moodle" tabindex="0">Site pages</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/blog/index.php?courseid=0"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Site blogs</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/tag/search.php"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Tags</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/calendar/view.php?view=month"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Calendar</a></p></li>
+<li class="type_activity depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Forum" href="https://eclass.srv.ualberta.ca/mod/forum/view.php?id=135"><img alt="Forum" class="smallicon navicon" title="Forum" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/icon">Site news</a></p></li></ul></li>
+<li class="type_user depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">My profile</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">View profile</a></p></li>
+<li class="type_custom depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Forum posts</span></p><ul><li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Posts</a></p></li>
+<li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Discussions</a></p></li></ul></li>
+<li class="type_unknown depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Blogs</span></p><ul><li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/blog/index.php?userid=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">View all of my entries</a></p></li>
+<li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/blog/edit.php?action=add"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Add a new entry</a></p></li>
+<li class="type_setting depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/rss/file.php/1/8ff4ec53fc42a014f357cbeb6adcb547/blog/user/111138/rss.xml"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/rss">Blog RSS feed</a></p></li></ul></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/message/index.php?user1=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Messages</a></p></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/user/files.php"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">My private files</a></p></li></ul></li>
+<li class="type_system depth_2 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0">Current course</span></p><ul><li class="type_course depth_3 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand"><a title="CMPUT 201 Wi12 - PRACTICAL PROG METHODOLOGY Combined LAB LEC Wi12" href="https://eclass.srv.ualberta.ca/course/view.php?id=3344">CMPUT 201 (Winter 2012 LAB LEC)</a></p><ul><li class="type_unknown depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Participants</span></p><ul><li class="type_user depth_5 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a href="https://eclass.srv.ualberta.ca/user/view.php?id=111138&course=3344">Mohammad Sirajee</a></p><ul><li class="type_custom depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/user/view.php?id=111138&course=3344"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">View profile</a></p></li>
+<li class="type_custom depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Forum posts</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&course=3344"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Posts</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&course=3344&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Discussions</a></p></li></ul></li>
+<li class="type_unknown depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Blogs</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/blog/index.php?userid=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">View all of my entries</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/blog/edit.php?action=add"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Add a new entry</a></p></li>
+<li class="type_setting depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/rss/file.php/1/8ff4ec53fc42a014f357cbeb6adcb547/blog/user/111138/rss.xml"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/rss">Blog RSS feed</a></p></li></ul></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/message/index.php?user1=111138&viewing=course_3344"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Messages</a></p></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/user/files.php"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">My private files</a></p></li></ul></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_31928" data-expandable="1" data-loaded="0"><span tabindex="0">General</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44454" data-expandable="1" data-loaded="0"><span tabindex="0">Week 1:  January 9</span></p></li>
+<li class="type_structure depth_4 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0">Topic 2</span></p><ul><li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=152466"><img alt="Page" class="smallicon navicon" title="Page" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/icon(1)">Lab Exercise 1:  Linux Basics</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="File" href="https://eclass.srv.ualberta.ca/mod/resource/view.php?id=153864"><img alt="File" class="smallicon navicon" title="File" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/pdf-24">C201 Lecture Slides 1 to 36</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="File" href="https://eclass.srv.ualberta.ca/mod/resource/view.php?id=154267"><img alt="File" class="smallicon navicon" title="File" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/mp3-24">Podcast: Tues., Jan. 17, 2012. Lecture 3.</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="File" href="https://eclass.srv.ualberta.ca/mod/resource/view.php?id=156388"><img alt="File" class="smallicon navicon" title="File" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/mp3-24">Podcast: Thurs., Jan. 19, 2012. Lecture 4.</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155134"><img alt="Page" class="smallicon navicon" title="Page" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/icon(1)">Assignment 1a</a></p></li>
+<li class="type_activity depth_5 item_with_icon current_branch"><p class="tree_item leaf hasicon active_tree_node"><a title="Page" href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136"><img alt="Page" class="smallicon navicon" title="Page" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/icon(1)">Assignment 1 - Hints and Resources</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155137"><img alt="Page" class="smallicon navicon" title="Page" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/icon(1)">Assignment 1 sample input file</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="Page" href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=157149"><img alt="Page" class="smallicon navicon" title="Page" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/icon(1)">Lab Exercise 2: Parsing Input</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="File" href="https://eclass.srv.ualberta.ca/mod/resource/view.php?id=159533"><img alt="File" class="smallicon navicon" title="File" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/archive-24">Lab 2: Makefile, gcc, popen, sketchpad example (Up...</a></p></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44456" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 3</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44457" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 4</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44458" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 5</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44459" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 6</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44460" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 7</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44461" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 8</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44462" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 9</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44463" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 10</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44464" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 11</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44465" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 12</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44466" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 13</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_44467" data-expandable="1" data-loaded="0"><span tabindex="0">Topic 14</span></p></li></ul></li></ul></li>
+<li class="type_system depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_0_mycourses" data-expandable="1" data-loaded="0"><a href="https://eclass.srv.ualberta.ca/my/">My courses</a></p></li></ul></li></ul></div></div><span id="sb-1" class="skip-block-to"></span><a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#sb-2" class="skip-block">Skip Administration</a><div id="inst5" class="block_settings  block" role="navigation" data-block="settings" data-instanceid="5" aria-labelledby="instance-5-header"><div class="header"><div class="title" id="yui_3_13_0_3_1421671471805_224"><div class="block_action"><img class="block-hider-hide" tabindex="0" alt="Hide Administration block" title="Hide Administration block" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/switch_minus"><img class="block-hider-show" tabindex="0" alt="Show Administration block" title="Show Administration block" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/switch_plus"></div><h2 id="instance-5-header">Administration</h2></div></div><div class="content"><div id="settingsnav" class="box block_tree_box"><ul class="block_tree list"><li class="type_unknown collapsed contains_branch" aria-expanded="false"><p class="tree_item branch root_node" id="usersettings"><span tabindex="0">My profile settings</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/user/edit.php?id=111138&course=3344"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Edit profile</a></p></li>
+<li class="type_setting collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Portfolios</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/user/portfolio.php?courseid=3344"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Configure</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/user/portfoliologs.php?courseid=3344"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Transfer logs</a></p></li></ul></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/user/managetoken.php?sesskey=RUgegGpJFe"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Security keys</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/message/edit.php?id=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Messaging</a></p></li>
+<li class="type_unknown collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Blogs</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/blog/preferences.php"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Preferences</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/blog/external_blogs.php"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">External blogs</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/blog/external_blog_edit.php"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/navigationitem">Register an external blog</a></p></li></ul></li></ul></li></ul></div></div></div><span id="sb-2" class="skip-block-to"></span></aside>
+        <section id="region-main" class="span6 column3">
+            <h1 class="course-header-link"><a href="https://eclass.srv.ualberta.ca/course/view.php?id=3344">CMPUT 201 Wi12 - PRACTICAL PROG METHODOLOGY Combined LAB LEC Wi12</a></h1><div role="main"><span id="maincontent"></span><h2>Assignment 1 - Hints and Resources</h2><div class="box generalbox center clearfix"><div class="no-overflow"><h1>Assignment 1 - Hints and Resources</h1>
+<h2>Contents</h2>
+<ul>
+<li>General <a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#hint">Hints</a></li>
+</ul>
+<ul>
+<li><a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#resources">Resources</a></li>
+<li><a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#errCheck">Error checking</a></li>
+<li><a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#input">Guarantees on input</a></li>
+<li><a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#sub">Marking and Submission</a></li>
+</ul>
+<ul>
+<li><a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=155136#hints">Technical hints<br></a></li>
+</ul>
+<h2><a name="hint"></a>General Hints</h2>
+<ul>
+<li>Make use of the guarantees below to simplify the design of your code</li>
+<li>You need to do some error checking</li>
+<li>Handle all valid cases listed below.</li>
+<li>Use our sample input files and Sketchpad -d for testing your code</li>
+<li>Check out marking and submission information</li>
+</ul>
+<h2><a name="resources"></a>Resources</h2>
+<p>Study the following resources as needed:</p>
+<ul>
+<li>standard C library functions for files, strings</li>
+<li>standard Unix/Linux functions popen, pclose</li>
+</ul>
+<ul></ul>
+<ul></ul>
+<h3><a name="errCheck"></a> Error Checking</h3>
+<p>In Assignment 1, there are strong guarantees on the test input, so you do not need a lot of error checking and handling in this assignment. However this will change in Assignment 2, so you can begin to think about how to detect errors in the input.</p>
+<p>Note you must still detect and appropriately deal with return values from <a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=118848#not">certain standard library C functions</a> (as specified at the <em>Marking and Submission Rules</em> page).</p>
+<h3><a name="input"></a>Guarantees about Test Input</h3>
+<p>For both parts of Assignment 1, your code will only be tested on input which is valid according to the specifications. Furthermore, it will obey the following restrictions:</p>
+<ul>
+<li>The input file's name will be no more than 128 characters.</li>
+<li>Input lines will be no more than 256 characters (including the newline).</li>
+<li>Each line starts with one of the 8 keywords. There will be no leading whitespace on a line.</li>
+<li>Relevant for Part b only:<br>
+<ul>
+<li>The name of a figure/image will be no more than 128 characters, and will consist solely of alphanumeric characters.</li>
+<li>There will be no more than 16 figures/images.</li>
+<li>A figure/image will never define more than 16 line segments, so will never have more than 16 <code>lineTo&nbsp;</code>commands.</li>
+<li>All numbers not in comments can be stored as doubles without causing overflow. All operations requested by the input file will also not result in overflow.<!--, except on blank lines where there will be exactly one character, which will be a newline.--></li>
+<li>All <code>child</code> commands will have correct <code>Sketchpad</code> instructions.</li>
+<li>The last line of input is always <code>child end</code>.</li>
+</ul>
+</li>
+</ul>
+<h3><a name="cases"></a>Explicitly Valid Cases (Relevant for Part b only)</h3>
+<p>You are expected to handle the following non-obvious and/or non-trivial cases:</p>
+<ul>
+<li>Figures, which are labelled as <span style="font-family: &#39;courier new&#39;, courier, monospace;">Image</span> in the input, may be redefined.The new definition replaces the old one.</li>
+<li>Some Figures/Images may not contain any <code>lineTo</code>&nbsp;command. &nbsp;<strong>For such empty figures/images, do not draw any line segments and do not print any points, not even the pen starting point.</strong><!--
+<li>if <tt>append X Y</tt> is called, X would then contain Y's points (if Y had any points) and no other points. </li>
+--></li>
+<!--
+<li>A matrix can be appended to itself.</li>
+-->
+<li>One or more points in a figure/image can be outside the Sketchpad window.</li>
+<li>A Figure/Image name can be any alphanumeric token (combination of characters and digits).</li>
+</ul>
+<h3><a name="sample"></a></h3>
+<h3><a name="sub"></a>Marking and Submission</h3>
+<p>You are required to read the <a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=118848">Assignments Marking and Submission Rules</a> page and follow all instructions:</p>
+<ul>
+<li>Having correct code is important, but good <a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=118848#style">style and quality</a> are also important.</li>
+<li>You need to write a <a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=118848#make">Makefile</a> for your program that creates a <code>draw<span style="font-family: trebuchet ms,verdana,arial,helvetica,sans-serif;">1a</span></code> or <code>draw<span style="font-family: trebuchet ms,verdana,arial,helvetica,sans-serif;">1b </span></code>executable.</li>
+</ul>
+<p>Submit using the following command:</p>
+<pre> Part 1a: % astep -c c201 -p asn1a submit.tar  <br><br> Part 1b: % astep -c c201 -p asn1b submit.tar </pre>
+<p>See <a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=118848#sub">submission rules</a> for more information on <code>submit.tar</code>.</p>
+<h3><a name="hints"></a>Hints</h3>
+<ul>
+<li>To print the <span class="nolink">start-up message<strong> (Jan. 31/12: &nbsp;removed an outdated link)</strong></span>, use the following hints:
+<ul>
+<li>Use <code>fflush</code> right before you call <code>system</code> (see immediately below) to ensure the order of your output is correct. Use it to flush all open output streams. See its <code>man</code> page for more information.</li>
+<li>Use the line
+<blockquote><code>system("date");</code></blockquote>
+to call the Linux <code>date</code> command, which prints out the current date and time. See the <code>system</code> man page for the header file to include.</li>
+</ul>
+</li>
+<li><a name="fprintf"></a>To send <code>drawSegment</code> commands to <code>Sketchpad</code>, open a pipe to <code>Sketchpad</code> using <code>popen</code> (<code>man 3 popen</code>), send the commands using <code>fprintf</code> (<code>man 3 fprintf</code>. It is similar to <code>printf</code>.), and then close the pipe using <code>pclose</code>. <code>popen</code> and <code>pclose</code> should only be called once each.</li>
+<li><a name="proto"></a> <code>popen</code> and <code>pclose</code> are not part of the. To use them, you have to #include the appropriate header file (see their <code>man</code> pages).</li>
+<li>For <code>lround</code> you must include the math library when linking (as well as including math.h in your .c file). Do this by including the <code>gcc -lm</code>(an el, not a one) option when linking. Here's such a sample command:
+<blockquote><code> gcc -std=c99 -Wall draw1.o -o draw1 -lm</code></blockquote>
+(See the <code>gcc</code> man page for more info. It's a bit tricky to find the <code>-lm</code> option, though, so ask a TA for help if needed and/or post to the Course Discussion Forum.)</li>
+<li>As always, please ask TAs and other course staff if you need assistance.</li>
+</ul></div></div><div class="modified">Last modified: Tuesday, 31 January 2012, 4:27 PM</div></div>        </section>
+
+        <div class="pull-right heading-button"></div>
+        <aside id="block-region-side-post" class="span3 column3 block-region" data-blockregion="side-post" data-droptarget="1"></aside>
+        <aside id="region-profile" class="column3"><div class="logininfo"><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138" title="View profile" class="userloginprofile"><img src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/f2" alt="Picture of Mohammad Sirajee" title="Picture of Mohammad Sirajee" class="nav_userpicture defaultuserpic" width="35" height="35">Mohammad Sirajee</a> <small>(</small> <a href="https://eclass.srv.ualberta.ca/login/logout.php?sesskey=RUgegGpJFe">Log out</a> <small>)</small></div><ul class="column3">
+<li><ul class="profile-nav">
+<li><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138">View profile</a><ul class="profile-child">
+</ul></li>
+<li><span>Forum posts</span><ul class="profile-child">
+<li><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138">Posts</a></li>
+<li><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&mode=discussions">Discussions</a></li>
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138">Posts</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&mode=discussions">Discussions</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/blog/index.php?userid=111138">View all of my entries</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/blog/edit.php?action=add">Add a new entry</a><ul class="profile-child">
+</ul></li>
+</ul></li>
+<li><ul class="profile-set">
+<li><a href="https://eclass.srv.ualberta.ca/user/edit.php?id=111138&course=3344">Edit profile</a><ul class="profile-child">
+</ul></li>
+<li><span>Portfolios</span><ul class="profile-child">
+<li><a href="https://eclass.srv.ualberta.ca/user/portfolio.php?courseid=3344">Configure</a></li>
+<li><a href="https://eclass.srv.ualberta.ca/user/portfoliologs.php?courseid=3344">Transfer logs</a></li>
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/user/managetoken.php?sesskey=RUgegGpJFe">Security keys</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/message/edit.php?id=111138">Messaging</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/user/portfolio.php?courseid=3344">Configure</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/user/portfoliologs.php?courseid=3344">Transfer logs</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/blog/preferences.php">Preferences</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/blog/external_blogs.php">External blogs</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/blog/external_blog_edit.php">Register an external blog</a><ul class="profile-child">
+</ul></li>
+</ul></li>
+</ul></aside>    </div>
+
+    <footer id="page-footer">
+        <div id="course-footer"></div>
+        <p class="helplink"></p>
+        <div class="logininfo"><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138" title="View profile" class="userloginprofile"><img src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/f2" alt="Picture of Mohammad Sirajee" title="Picture of Mohammad Sirajee" class="nav_userpicture defaultuserpic" width="35" height="35">Mohammad Sirajee</a> <small>(</small> <a href="https://eclass.srv.ualberta.ca/login/logout.php?sesskey=RUgegGpJFe">Log out</a> <small>)</small></div><div class="homelink"><a href="https://eclass.srv.ualberta.ca/course/view.php?id=3344">CMPUT 201 (Winter 2012 LAB LEC)</a></div>    </footer>
+    <script type="text/javascript" src="./CMPUT 201 (Winter 2012 LAB LEC)  Assignment 1 - Hints and Resources_files/footer"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Last modified","name":"Name","error":"Error","info":"Information","viewallcourses":"View all courses","morehelp":"More help","loadinghelp":"Loading...","cancel":"Cancel","yes":"Yes"},"repository":{"type":"Type","size":"Size","invalidjson":"Invalid JSON string","nofilesattached":"No files attached","filepicker":"File picker","logout":"Logout","nofilesavailable":"No files available","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"File exists","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Rename to \"{$a}\"","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source","select":"Select"},"admin":{"confirmation":"Confirmation"}};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var navtreeexpansions4 = [{"id":"expandable_branch_30_31928","key":"31928","type":30},{"id":"expandable_branch_30_44454","key":"44454","type":30},{"id":"expandable_branch_30_44456","key":"44456","type":30},{"id":"expandable_branch_30_44457","key":"44457","type":30},{"id":"expandable_branch_30_44458","key":"44458","type":30},{"id":"expandable_branch_30_44459","key":"44459","type":30},{"id":"expandable_branch_30_44460","key":"44460","type":30},{"id":"expandable_branch_30_44461","key":"44461","type":30},{"id":"expandable_branch_30_44462","key":"44462","type":30},{"id":"expandable_branch_30_44463","key":"44463","type":30},{"id":"expandable_branch_30_44464","key":"44464","type":30},{"id":"expandable_branch_30_44465","key":"44465","type":30},{"id":"expandable_branch_30_44466","key":"44466","type":30},{"id":"expandable_branch_30_44467","key":"44467","type":30},{"id":"expandable_branch_0_mycourses","key":"mycourses","type":0}];
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+YUI().use('node', function(Y) {
+M.util.load_flowplayer();
+setTimeout("fix_column_widths()", 20);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"4","instance":"4","candock":false,"courselimit":"100","expansionlimit":0});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"5","instance":"5","candock":false});
+});
+M.util.help_popups.setup(Y);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-core-popuphelp",function() {M.core.init_popuphelp();
+});
+M.util.init_block_hider(Y, {"id":"inst4","title":"Navigation","preference":"block4hidden","tooltipVisible":"Hide Navigation block","tooltipHidden":"Show Navigation block"});
+M.util.init_block_hider(Y, {"id":"inst5","title":"Administration","preference":"block5hidden","tooltipVisible":"Hide Administration block","tooltipHidden":"Show Administration block"});
+ M.util.js_pending('random54bcfc3001a3c4'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random54bcfc3001a3c4'); });
+
+});
+//]]>
+</script>
+
+</div>
+
+
+</body></html>

@@ -1,0 +1,6 @@
+./draw1b started on Wed Feb 18 23:05:18 MST 2015
+Input file: testcases/testcase1.txt
+#  Test Case 1 - tests comments and child commands
+#  Comments look like this
+#  ############################
+#  child end below is last line in input file

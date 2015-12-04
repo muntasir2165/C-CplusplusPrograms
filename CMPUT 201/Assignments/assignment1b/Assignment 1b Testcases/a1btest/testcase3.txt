@@ -1,0 +1,11 @@
+# Test Case 3 - tests creating and drawing a single image
+Image A 200 200 =
+lineTo 50 -100
+lineTo 50 100
+lineTo -110 -66
+lineTo 120 0
+lineTo -110 66
+End Image A
+draw A
+child pause 5
+child end

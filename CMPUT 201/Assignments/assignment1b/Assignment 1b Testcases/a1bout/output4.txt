@@ -1,0 +1,11 @@
+./draw1b started on Wed Feb 18 23:06:12 MST 2015
+Input file: testcases/testcase4.txt
+#  Test Case 4 - tests translating and printing a single image
+Print Image A =
+300 350
+350 250
+400 350
+290 284
+410 284
+300 350
+End Image A

@@ -1,0 +1,7 @@
+Image A 100 100 =
+End Image A
+translate A 10 10
+rotate A 90
+draw A
+print A
+child end

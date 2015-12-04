@@ -1,0 +1,11 @@
+total 15K
+-rw-------+ 1 sirajee ugrad 72 Jan 15 16:51 C:\nppdf32Log\debuglog.txt
+drwx------+ 2 sirajee ugrad  2 Jan 15 16:50 Desktop
+drwx------+ 2 sirajee ugrad  2 Jan 15 16:50 Documents
+drwx------+ 2 sirajee ugrad  2 Jan 15 16:50 Downloads
+drwx------+ 2 sirajee ugrad  2 Jan 15 16:50 Music
+drwx------+ 2 sirajee ugrad  2 Jan 15 16:50 Pictures
+drwx------+ 2 sirajee ugrad  2 Jan 15 16:50 Public
+drwx------+ 2 sirajee ugrad  2 Jan 15 16:50 Templates
+drwx------+ 2 sirajee ugrad  2 Jan 15 16:57 Videos
+drwx------+ 5 sirajee ugrad  5 Jan 15 16:59 cmput201

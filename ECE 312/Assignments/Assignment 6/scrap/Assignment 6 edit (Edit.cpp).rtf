@@ -1,0 +1,86 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 Consolas;}
+{\colortbl;\red255\green255\blue255;\red0\green128\blue0;\red0\green0\blue255;\red163\green21\blue21;
+\red111\green0\blue138;\red43\green145\blue175;\red128\green128\blue128;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs19 \cf2 // ECE 312 LEC A1\cf0 \
+\cf2 // Assignment 6, Fall 2014\cf0 \
+\cf2 // Author: Mohammad Sirajee\cf0 \
+\cf2 // Student ID: 1255986\cf0 \
+\cf2 // Percent Original: \cf0 \
+\cf2 // Other Contributors: Joao Paulo Figueiredo (1417859)\cf0 \
+\
+\cf3 #include\cf0  \cf4 <stdio.h>\cf0  \cf2 // For standard C file input/output\cf0 \
+\cf3 #define\cf0  \cf5 PAUSE\cf0  -1 \cf2 // Symbolize pause in user input\cf0 \
+\
+\cf2 /* WRITE A COMMENT HEADER HERE IN YOUR OWN WORDS.\cf0 \
+\cf2 */\cf0 \
+\cf3 void\cf0  multiTap(\cf6 FILE\cf0  *\cf7 fout\cf0 , \cf3 int\cf0  \cf7 key\cf0 ) \{\
+\
+	\cf3 char\cf0  zero[] = \{\cf4 ' '\cf0 , \cf4 '0'\cf0 \};\
+	\cf3 char\cf0  one[] = \{ \cf4 ','\cf0 , \cf4 '.'\cf0 , \cf4 '\\''\cf0 , \cf4 '?'\cf0 , \cf4 '!'\cf0 , \cf4 '"'\cf0 , \cf4 '1'\cf0 , \cf4 '-'\cf0 , \cf4 '('\cf0 , \cf4 ')'\cf0 , \cf4 '@'\cf0 , \cf4 '/'\cf0 , \cf4 ':'\cf0 , \cf4 '_'\cf0  \};\
+	\cf3 char\cf0  two[] = \{\cf4 'A'\cf0 , \cf4 'B'\cf0 , \cf4 'C'\cf0 , \cf4 '2'\cf0 \};\
+	\cf3 char\cf0  three[] = \{\cf4 'D'\cf0 , \cf4 'E'\cf0 , \cf4 'F'\cf0 , \cf4 '3'\cf0 \};\
+	\cf3 char\cf0  four[] = \{\cf4 'G'\cf0 , \cf4 'H'\cf0 , \cf4 'I'\cf0 , \cf4 '4'\cf0 \};\
+	\cf3 char\cf0  five[] = \{\cf4 'J'\cf0 , \cf4 'K'\cf0 , \cf4 'L'\cf0 , \cf4 '5'\cf0 \};\
+	\cf3 char\cf0  six[] = \{\cf4 'M'\cf0 , \cf4 'N'\cf0 , \cf4 'O'\cf0 , \cf4 '6'\cf0 \};\
+	\cf3 char\cf0  seven[] = \{\cf4 'P'\cf0 , \cf4 'Q'\cf0 , \cf4 'R'\cf0 , \cf4 'S'\cf0 , \cf4 '7'\cf0 \};\
+	\cf3 char\cf0  eight[] = \{\cf4 'T'\cf0 , \cf4 'U'\cf0 , \cf4 'V'\cf0 , \cf4 '8'\cf0 \};\
+	\cf3 char\cf0  nine[] = \{\cf4 'W'\cf0 , \cf4 'X'\cf0 , \cf4 'Y'\cf0 , \cf4 'Z'\cf0 , \cf4 '9'\cf0 \};\
+\
+	\cf3 static\cf0  \cf3 int\cf0  previous_key = \cf7 key\cf0 ;\
+	\cf3 static\cf0  \cf3 int\cf0  count = 0;\
+\
+	\cf3 if\cf0  (previous_key == \cf5 PAUSE\cf0 ) \{\
+		previous_key = \cf7 key\cf0 ;\
+		\cf2 //count++;\cf0 \
+	\}\
+\
+	\cf3 if\cf0  (previous_key == \cf7 key\cf0  && \cf7 key\cf0  != \cf5 PAUSE\cf0 ) \{\
+		count++;\
+	\}\
+	\cf3 else\cf0  \cf3 if\cf0  (previous_key != \cf7 key\cf0 ) \{\
+		\cf3 char\cf0  character;\
+		\cf3 switch\cf0  (previous_key)\
+		\{\
+		\cf3 case\cf0  0: character = zero[(count-1) % \cf3 sizeof\cf0 (zero)];\
+			\cf3 break\cf0 ;\
+		\cf3 case\cf0  1: character = one[(count - 1) % \cf3 sizeof\cf0 (one)];\
+			\cf3 break\cf0 ;\
+		\cf3 case\cf0  2: character = two[(count - 1) % \cf3 sizeof\cf0 (two)];\
+			\cf3 break\cf0 ;\
+		\cf3 case\cf0  3: character = three[(count - 1) % \cf3 sizeof\cf0 (three)];\
+			\cf3 break\cf0 ;\
+		\cf3 case\cf0  4: character = four[(count - 1) % \cf3 sizeof\cf0 (four)];\
+			\cf3 break\cf0 ;\
+		\cf3 case\cf0  5: character = five[(count - 1) % \cf3 sizeof\cf0 (five)];\
+			\cf3 break\cf0 ;\
+		\cf3 case\cf0  6: character = six[(count - 1) % \cf3 sizeof\cf0 (six)];\
+			\cf3 break\cf0 ;\
+		\cf3 case\cf0  7: character = seven[(count - 1) % \cf3 sizeof\cf0 (seven)];\
+			\cf3 break\cf0 ;\
+		\cf3 case\cf0  8: character = eight[(count - 1) % \cf3 sizeof\cf0 (eight)];\
+			\cf3 break\cf0 ;\
+		\cf3 case\cf0  9: character = nine[(count - 1) % \cf3 sizeof\cf0 (nine)];\
+			\cf3 break\cf0 ;\
+		\}\
+		fputc(character, \cf7 fout\cf0 );\
+		\cf3 if\cf0  (\cf7 key\cf0  != \cf5 PAUSE\cf0 ) \{\
+			previous_key = \cf7 key\cf0 ;\
+			count = 1;\
+		\}\
+		\cf3 else\cf0  \{\
+			previous_key = \cf5 PAUSE\cf0 ;\
+			count = 0;\
+		\}\
+	\}\
+\
+	\cf2 /*\cf0 \
+\cf2 	static int count = 0; // State variable\cf0 \
+\cf2 	if (key != PAUSE) fputc(key + '0', fout);\cf0 \
+\cf2 	else count++; // Count pauses\cf0 \
+\cf2 	*/\cf0 \
+\}\
+}

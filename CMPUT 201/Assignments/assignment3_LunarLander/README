@@ -1,0 +1,57 @@
+name:               Mohammad Sirajee
+ONE Card number:    1255986
+Unix id:            sirajee
+lecture section:    EB1
+instructor's name:  Jacqueline Smith
+lab section:        EH02
+TA's name:          Nicolas Barriga, Shida He,
+                    and Rong Feng
+
+This program does the following:
+-Check if the user has provided the correct number of arguments
+-Process the input by assigning the gravity and thruster values to the
+ corresponding variables and the landscape file name to a character array.
+-Try to open the landscape file and a pipe to the Sketchpad executable. If
+ either fails, print an error message and quit the program.
+ -Draw the landscape by sending drawSegment commands to Sketchpad.
+-Set the curses to take user input when the game starts.
+-Initialize the lander at the centre of the Sketchpad window.
+-Print a message to the console stdout asking the player to press any key to
+ start the game in the popped up sketchpad window.
+-The player can press left and right arrow keys to move the lunar lander in
+ the corresponding direction. Pressing the spacebar key initiates the thruster
+ and pressing 'q' quits the game.
+-If the player lands the lander at a reasonably slow speed AND on a flat
+ surface, then the lunar lands successfully and a 'LANDED!!!' message is
+ displayed on the console. Otherwise, the lander crashes and a message saying
+ so is displayed to the stdout.
+-No matter what the outcome of the game is, pressing 'q' at this point will
+ get the player out of the game.
+-Close the landscape input file, terminate the child process, unset the curses
+ and exit the program
+
+(see lander.c, functions.c and lander.h comments for more details)
+
+Compile by typing make.
+
+Ensure a landscape file (e.g., landscape.txt) is present in
+ the current directory, and run by typing
+
+./lander -g X -t Y -f landscape.txt
+
+where:
+	-lander is the executable
+	-'-g' is the flag for gravity and X following it is gravity's nemerical
+	  value (please note that X is expected to be a positive number)
+	-'-t' is the flag for the lander's thrust and Y following it is thrust's
+	 value (please note that Y is expected to be a negative number)
+	-'f' is the flag for the landscape file to read (x,y) coordinates from and
+	 landscape.txt following it is the name of the text file. The point
+	 inside this file will be joined together to produce the landscape in
+	 Sketchpad
+
+I did not collaborate with anyone. However, I received valuable guidance from
+ the course instructor and lab TAs.
+
+ Small improvement with respect to the given lander executable:
+ 1) Accept the six arguments following './lander' in any order

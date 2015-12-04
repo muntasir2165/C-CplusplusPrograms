@@ -1,0 +1,17 @@
+# Test Case 5 - tests redefining and printing a single image
+Image A 100 100 =
+# Image A (2 diagonal line segments)
+lineTo 100 100
+lineTo -100 100
+End Image A
+print A
+# redefinition of image A
+Image A 200 200 =
+lineTo 50 -100
+lineTo 50 100
+lineTo -110 -66
+lineTo 120 0
+lineTo -110 66
+End Image A
+print A
+child end

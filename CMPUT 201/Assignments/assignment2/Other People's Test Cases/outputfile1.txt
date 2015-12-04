@@ -1,0 +1,4 @@
+./draw2 started on Wed 11 Mar 2015 16:14:46 MDT
+Input file: inputfile.txt
+Print Image A =
+End Image A

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://eclass.srv.ualberta.ca/mod/page/view.php?id=1427907 -->
+<html dir="ltr" lang="en" xml:lang="en" class="yui3-js-enabled" id="yui_3_13_0_2_1428223606332_11"><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CMPUT 201 (Winter 2015 LEC B1 EB1): Assignment 3</title>
+    <link rel="shortcut icon" href="https://eclass.srv.ualberta.ca/theme/image.php/eclass/theme/1426338078/favicon">
+    
+<meta name="keywords" content="moodle, CMPUT 201 (Winter 2015 LEC B1 EB1): Assignment 3">
+<script type="text/javascript" async="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/analytics.js"></script><script async="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/gtm.js"></script><script type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/eclass.srv.ualberta.ca","sesskey":"vOEsivCG6E","loadingicon":"https:\/\/eclass.srv.ualberta.ca\/theme\/image.php\/eclass\/core\/1426338078\/i\/loading_small","themerev":"1426338078","slasharguments":1,"theme":"eclass","jsrev":"1426338078","svgicons":true,"developerdebug":true};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''};if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else me.path=component+'/'+component+'.'+me.type};
+YUI_config = {"debug":true,"base":"https:\/\/eclass.srv.ualberta.ca\/lib\/yuilib\/3.13.0\/","comboBase":"https:\/\/eclass.srv.ualberta.ca\/theme\/yui_combo.php?","combine":true,"filter":"RAW","insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/eclass.srv.ualberta.ca\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/eclass.srv.ualberta.ca\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/eclass.srv.ualberta.ca\/theme\/yui_combo.php?m\/1426338078\/","combine":true,"comboBase":"https:\/\/eclass.srv.ualberta.ca\/theme\/yui_combo.php?","ext":false,"root":"m\/1426338078\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":"DEBUG","modules":{"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-dock":{"requires":["base","node","event-custom","event-mouseenter","event-resize","escape","moodle-core-dock-loader"]},"moodle-core-dock-loader":{"requires":["escape"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-formchangechecker":{"requires":["base","event-focus"]},"moodle-core-formautosubmit":{"requires":["base","event-key"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-calendar-eventmanager":{"requires":["base","node","event-mouseenter","overlay","moodle-calendar-eventmanager-skin"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-block_navigation-navigation":{"requires":["base","io-base","node","event-synthetic","event-delegate","json-parse"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-notification-alert"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-theme_bootstrapbase-bootstrap":{"requires":["node","selector-css3"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/eclass.srv.ualberta.ca\/lib\/javascript.php\/1426338078\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker"]}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+<link rel="stylesheet" type="text/css" href="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/yui_combo.php"><script type="text/javascript" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/yui_combo(1).php"></script><script type="text/javascript" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/yui_combo(2).php"></script><script charset="utf-8" id="yui_3_13_0_2_1428223606332_2" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/yui_combo(3).php" async=""></script><script charset="utf-8" id="yui_3_13_0_3_1428223606332_8" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/yui_combo(4).php" async=""></script><script charset="utf-8" id="yui_3_13_0_2_1428223606332_4" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/yui_combo(5).php" async=""></script><link charset="utf-8" rel="stylesheet" id="yui_3_13_0_3_1428223606332_194" href="https://eclass.srv.ualberta.ca/theme/yui_combo.php?3.13.0/cssbutton/cssbutton-min.css"><script charset="utf-8" id="yui_3_13_0_3_1428223606332_195" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/yui_combo(6).php" async=""></script><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/all">
+<script type="text/javascript" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/javascript-static.js"></script>
+
+<style type="text/css"><!--
+.resourcepdf{overflow: auto;} /* Temporary fix for iOS PDF scrolling bug - Added by Jordan Schulz - 2 Sep 2011 */
+--></style>    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+</head>
+
+<body id="page-mod-page-view" class="format-weeks  path-mod path-mod-page safari dir-ltr lang-en yui-skin-sam yui3-skin-sam eclass-srv-ualberta-ca pagelayout-incourse course-20976 context-2077064 cmid-1427907 category-1170 has-region-side-pre used-region-side-pre has-region-side-post empty-region-side-post jsenabled">
+
+<div class="skiplinks"><a class="skip" href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=1427907#maincontent">Skip to main content</a></div>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+<!-- Google Tag Manager -->
+<noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-T7MGWQ"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T7MGWQ');</script>
+<!-- End Google Tag Manager -->
+<header role="banner" class="navbar navbar-fixed-top moodle-has-zindex"><nav role="navigation" class="navbar-inner"><div class="container-fluid"><img src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/ua-logo" class="uofa-logo" height="40px"><div class="nav-brand"><a class="brand" href="https://eclass.srv.ualberta.ca/">eClass</a></div><div class="pull-right"><ul class="nav"><li class="nav-menu "><a title="Home" target="_parent" href="https://eclass.srv.ualberta.ca/my/index.php"><span><div class="nav-icon glyphicons home"></div><span>Home</span></span></a></li><li class="nav-menu "><a title="Email" target="_blank" href="https://mail.google.com/a/ualberta.ca"><span><div class="nav-icon glyphicons envelope"></div><span>Email</span></span></a></li><li class="nav-menu "><a title="Help" target="_blank" href="https://support.ctl.ualberta.ca/"><span><div class="nav-icon glyphicons circle_question_mark"></div><span>Help</span></span></a></li></ul><ul class="nav pull-right">
+<li></li>
+</ul><div class="scroll-top pull-right" title="Scroll to top"><span class="glyphicons collapse_top"></span></div><div class="logininfo"><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138" title="View profile" class="userloginprofile"><img src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/f2" alt="Picture of Mohammad Sirajee" title="Picture of Mohammad Sirajee" class="nav_userpicture defaultuserpic" width="35" height="35">Mohammad Sirajee</a> <small>(</small> <a href="https://eclass.srv.ualberta.ca/login/logout.php?sesskey=vOEsivCG6E">Log out</a> <small>)</small></div></div></div></nav><nav class="mobile-nav"><ul class="view-selector"><li><label class="toggle toggle-navigation" for="toggle-left" onclick=""><div class="mobile-nav-icon glyphicons list"></div><span>Navigation</span></label></li><li><label class="toggle toggle-content" for="toggle-center" onclick=""><div class="mobile-nav-icon glyphicons book"></div><span>Content</span></label></li><li><label class="toggle toggle-profile" for="toggle-profile" onclick=""><div class="mobile-nav-icon glyphicons user"></div><span>Profile</span></label></li><div class="active-indicator"></div></ul></nav></header>
+<div id="page" class="container-fluid" data-page-count="4">
+    <header id="page-header" class="clearfix">
+        <div id="course-header">
+                    </div>
+    </header>
+
+    <div id="page-content" class="row-fluid" style="transition-duration: 0s; -webkit-transition-duration: 0s;">
+        <input id="toggle-left" name="toggle" type="radio" hidden="true">
+        <input id="toggle-center" name="toggle" type="radio" checked="" hidden="true">
+        <input id="toggle-right" name="toggle" type="radio" hidden="true">
+        <input id="toggle-profile" name="toggle" type="radio" hidden="true">
+        <aside id="block-region-side-pre" class="span3 pull-left desktop-first-column column3 block-region" data-blockregion="side-pre" data-droptarget="1"><a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=1427907#sb-1" class="skip-block">Skip Navigation</a><div id="inst4" class="block_navigation  block" role="navigation" data-block="navigation" data-instanceid="4" aria-labelledby="instance-4-header"><div class="header"><div class="title" id="yui_3_13_0_3_1428223606332_207"><div class="block_action"><img class="block-hider-hide" tabindex="0" alt="Hide Navigation block" title="Hide Navigation block" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/switch_minus"><img class="block-hider-show" tabindex="0" alt="Show Navigation block" title="Show Navigation block" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/switch_plus"></div><h2 id="instance-4-header">Navigation</h2></div></div><div class="content"><ul class="block_tree list"><li class="type_unknown depth_1 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand navigation_node"><a href="https://eclass.srv.ualberta.ca/my/">My home</a></p><ul><li class="type_setting depth_2 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/?redirect=0"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Site home</a></p></li>
+<li class="type_course depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span title="eClass Powered by Moodle" tabindex="0">Site pages</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/tag/search.php"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Tags</a></p></li>
+<li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/calendar/view.php?view=month"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Calendar</a></p></li>
+<li class="type_activity depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a title="Forum" href="https://eclass.srv.ualberta.ca/mod/forum/view.php?id=135"><img alt="Forum" class="smallicon navicon" title="Forum" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/icon">Site news</a></p></li></ul></li>
+<li class="type_user depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">My profile</span></p><ul><li class="type_custom depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">View profile</a></p></li>
+<li class="type_custom depth_3 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Forum posts</span></p><ul><li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Posts</a></p></li>
+<li class="type_custom depth_4 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Discussions</a></p></li></ul></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/message/index.php?user1=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Messages</a></p></li>
+<li class="type_setting depth_3 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/user/files.php"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">My private files</a></p></li></ul></li>
+<li class="type_system depth_2 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0">Current course</span></p><ul><li class="type_course depth_3 contains_branch" aria-expanded="true"><p class="tree_item branch canexpand"><a title="CMPUT 201: Practical Programming Methodology (Winter 2015)" href="https://eclass.srv.ualberta.ca/course/view.php?id=20976">CMPUT 201 (Winter 2015 LEC B1 EB1)</a></p><ul><li class="type_unknown depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a href="https://eclass.srv.ualberta.ca/user/index.php?id=20976">Participants</a></p><ul><li class="type_user depth_5 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><a href="https://eclass.srv.ualberta.ca/user/view.php?id=111138&course=20976">Mohammad Sirajee</a></p><ul><li class="type_custom depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/user/view.php?id=111138&course=20976"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">View profile</a></p></li>
+<li class="type_custom depth_6 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Forum posts</span></p><ul><li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&course=20976"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Posts</a></p></li>
+<li class="type_custom depth_7 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&course=20976&mode=discussions"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Discussions</a></p></li></ul></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/message/index.php?user1=111138&viewing=course_20976"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Messages</a></p></li>
+<li class="type_setting depth_6 item_with_icon"><p class="tree_item leaf hasicon"><a href="https://eclass.srv.ualberta.ca/user/files.php"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">My private files</a></p></li></ul></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271312" data-expandable="1" data-loaded="0"><span tabindex="0">General</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271362" data-expandable="1" data-loaded="0"><span tabindex="0">Week 1: January 5 - 9</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271363" data-expandable="1" data-loaded="0"><span tabindex="0">Week 2: January 12 - 16</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271364" data-expandable="1" data-loaded="0"><span tabindex="0">Week 3: January 19 - 23</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271365" data-expandable="1" data-loaded="0"><span tabindex="0">Week 4: January 26 - 30</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271366" data-expandable="1" data-loaded="0"><span tabindex="0">Week 5: Feb 2 - 6</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271367" data-expandable="1" data-loaded="0"><span tabindex="0">Week 6: Feb 9 - 13</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271368" data-expandable="1" data-loaded="0"><span tabindex="0">Reading Week: Feb 16 - 20 (no classes)</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271369" data-expandable="1" data-loaded="0"><span tabindex="0">Week 7: Feb 23 - 27</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271370" data-expandable="1" data-loaded="0"><span tabindex="0">Week 8: March 2 - 6</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_271371" data-expandable="1" data-loaded="0"><span tabindex="0">Week 9: March 9 - 13</span></p></li>
+<li class="type_structure depth_4 contains_branch" aria-expanded="true"><p class="tree_item branch"><span tabindex="0">Week 10: March 16 - 20</span></p><ul><li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="File" href="https://eclass.srv.ualberta.ca/mod/resource/view.php?id=1435951"><img alt="File" class="smallicon navicon" title="File" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/pdf-24">Lecture Slides 150 - 153 (optional)</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="File" href="https://eclass.srv.ualberta.ca/mod/resource/view.php?id=1435954"><img alt="File" class="smallicon navicon" title="File" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/pdf-24">Lecture Slides 154 - 187</a></p></li>
+<li class="type_activity depth_5 item_with_icon current_branch"><p class="tree_item leaf hasicon active_tree_node"><a title="Page" href="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3.html"><img alt="Page" class="smallicon navicon" title="Page" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/icon(1)">Assignment 3</a></p></li>
+<li class="type_activity depth_5 item_with_icon"><p class="tree_item leaf hasicon"><a title="File" href="https://eclass.srv.ualberta.ca/mod/resource/view.php?id=1427940"><img alt="File" class="smallicon navicon" title="File" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/archive-24">Assignment 3 Files</a></p></li></ul></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_284005" data-expandable="1" data-loaded="0"><span tabindex="0">Week 11: March 23 - 27</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_284006" data-expandable="1" data-loaded="0"><span tabindex="0">Week 12: March 30 - April 3</span></p></li>
+<li class="type_structure depth_4 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_30_284007" data-expandable="1" data-loaded="0"><span tabindex="0">Week 13: April 6 - 10</span></p></li></ul></li></ul></li>
+<li class="type_system depth_2 collapsed contains_branch" aria-expanded="false"><p class="tree_item branch" id="expandable_branch_0_mycourses" data-expandable="1" data-loaded="0"><a href="https://eclass.srv.ualberta.ca/my/">My courses</a></p></li></ul></li></ul></div></div><span id="sb-1" class="skip-block-to"></span><a href="https://eclass.srv.ualberta.ca/mod/page/view.php?id=1427907#sb-2" class="skip-block">Skip Administration</a><div id="inst5" class="block_settings  block" role="navigation" data-block="settings" data-instanceid="5" aria-labelledby="instance-5-header"><div class="header"><div class="title" id="yui_3_13_0_3_1428223606332_224"><div class="block_action"><img class="block-hider-hide" tabindex="0" alt="Hide Administration block" title="Hide Administration block" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/switch_minus"><img class="block-hider-show" tabindex="0" alt="Show Administration block" title="Show Administration block" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/switch_plus"></div><h2 id="instance-5-header">Administration</h2></div></div><div class="content"><div id="settingsnav" class="box block_tree_box"><ul class="block_tree list"><li class="type_unknown collapsed contains_branch" aria-expanded="false"><p class="tree_item branch root_node" id="usersettings"><span tabindex="0">My profile settings</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/user/edit.php?id=111138&course=20976"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Edit profile</a></p></li>
+<li class="type_setting collapsed contains_branch" aria-expanded="false"><p class="tree_item branch"><span tabindex="0">Portfolios</span></p><ul><li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/user/portfolio.php?courseid=20976"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Configure</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/user/portfoliologs.php?courseid=20976"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Transfer logs</a></p></li></ul></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/user/managetoken.php?sesskey=vOEsivCG6E"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Security keys</a></p></li>
+<li class="type_setting collapsed item_with_icon"><p class="tree_item leaf"><a href="https://eclass.srv.ualberta.ca/message/edit.php?id=111138"><img alt="" class="smallicon navicon" title="" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/navigationitem">Messaging</a></p></li></ul></li></ul></div></div></div><span id="sb-2" class="skip-block-to"></span></aside>
+        <section id="region-main" class="span6 column3">
+            <h1 class="course-header-link"><a href="https://eclass.srv.ualberta.ca/course/view.php?id=20976">CMPUT 201: Practical Programming Methodology (Winter 2015)</a></h1><div role="main" id="yui_3_13_0_3_1428223606332_239"><span id="maincontent"></span><h2>Assignment 3</h2><div class="box generalbox center clearfix" id="yui_3_13_0_3_1428223606332_238"><div class="no-overflow" id="yui_3_13_0_3_1428223606332_237"><h2>Assignment 3: Lunar Lander</h2>
+<h2>Due Wednesday, April 8, 2015, before or at 5:00 PM.</h2>
+<ul></ul>
+<h3><a name="sum"></a>Summary</h3>
+<p>In this assignment you implement a <a href="http://my.ign.com/atari/lunar-lander">lunar lander game</a>. Unlike previous assignments (1a, 1b, 2), Assignment #3 does NOT directly build upon your code for Assignment #2. However, you will still use Sketchpad for drawing and you can re-use as much of your code as you want. This assignment is meant to be both fun and challenging. A lot of code and hints are provided to help you get started. Please also ask questions by posting to the Course Discussion forum.</p>
+<h3>Getting Started</h3>
+<p>First, download <strong>a3files.tar</strong> which contains the following files which will often be referenced in this specification and used in this assignment:</p>
+<ul>
+<li><span style="font-weight: bold;">lander</span> is our sample executable</li>
+<li><span style="font-weight: bold;">landscape.txt</span> is a sample landscape input file</li>
+<li><span style="font-weight: bold;">Sketchpad.jar</span> is a copy of the file from the sketchpad page.</li>
+<li><span style="font-weight: bold;">test_curses.c</span> is sample code demonstrating the curses package</li>
+<li><span style="font-weight: bold;">timer.c</span> is code demonstrating signals</li>
+<li><span style="font-weight: bold;">java_lander.tar.gz</span> and <span style="font-weight: bold;">perl_lander.tar.gz</span> are old Java and Perl codes with implementations of similar lunar landers, supplied without any guarantees or warranties in the hope that they might be useful for some students.</li>
+</ul>
+<p></p>
+<h3><a name="desc"></a>Description - Part 1 - Mimic Sample Lander</h3>
+<p>In Part 1, your program must mimic what the provided simple lander executable does. Download <span style="font-weight: bold;">a3files.tar </span>containing <code>lander</code>, <code>landscape.txt</code> and <span style="font-weight: bold;">Sketchpad.jar</span>, put all files into one directory, and, if necessary, use <span style="font-family: &#39;courier new&#39;, courier, monospace;">chmod</span> make <code>lander</code> executable.</p>
+<p>Run lander from the command line e.g. as in the following three examples.</p>
+<blockquote><code>./lander -g 0 -t -5 -f landscape.txt</code><br> <code> ./lander -g 9.8 -t -20 -f landscape.txt</code><br> <code> ./lander -g 1.6 -t -5 -f landscape.txt</code></blockquote>
+<ul>
+<li>-g represents gravity, causing acceleration towards the moon</li>
+<li><a name="t"></a>-t represents the thrust, the acceleration created by the ships thrusters when they are on.</li>
+<li><a name="f"></a>-f has one argument, the name of a text file containing points that represent the landscape.</li>
+</ul>
+<p><a name="safe_landing"></a>Follow the brief instructions given when you start up the game. <strong>Ensure that the terminal window, not the sketchpad window, has the focus, otherwise your keystrokes will not be read.</strong> Your goal is to land the ship as follows:</p>
+<ul>
+<li>Your ship must be upright.</li>
+<li>It must be going sufficiently slowly.</li>
+<li>It must land on a perfectly flat surface.</li>
+</ul>
+<h3><a name="desc"></a>Description - Part 2 - Individual Improvements</h3>
+<p>In Part 2, you improve upon the provided lander. There are many ways of doing so.</p>
+<h3><a name="hints"></a>Approach and Hints</h3>
+<p>To create the animation you need <code>drawSegment</code> as well as another Sketchpad instruction, <code>eraseSegment</code>. For example,</p>
+<blockquote><code>eraseSegment 1 2 3 4</code></blockquote>
+<p>erases the segment drawn by <code>drawSegment 1 2 3 4</code>. To move your ship, first erase it in its old location, then draw it at the new position. After both drawing and erasing the ship, you need to call <code>fflush</code> on the pipe to Sketchpad.<span style="font-style: italic;"><span style="font-weight: bold;"> </span></span> Here is a step by step outline you can follow (of course you are free to follow a different development path). We recommend doing the things towards the top of the list first:</p>
+<ul>
+<li>lander must respond to key clicks. Do this by using curses.</li>
+<li>You must be able to rotate your ship.</li>
+<li>Your ship must fall according to gravity. You can do this using signals.</li>
+<li>Handle the three command line arguments specified above.</li>
+<li>You must read in a text file specified using the -f option that represents a landscape. A sample file is <span style="font-weight: bold;">landscape.txt</span>.</li>
+<li>Your ship must respond to thrust.</li>
+<li>lander must appropriately detect a crash or a landing by testing for line segment intersection.</li>
+</ul>
+<h4><a name="curses"></a>Responding to key clicks using curses</h4>
+<p>You must use the <span style="font-style: italic;">ncurses</span> implementation of the <span style="font-style: italic;">curses</span> C library to listen to key clicks.</p>
+<p>Resources for information on curses include:</p>
+<ul>
+<li>Lab presentation</li>
+<li>Code and comments in <span style="font-weight: bold;">test_curses.c</span></li>
+<li>man 3 ncurses</li>
+<li><a href="http://en.wikipedia.org/wiki/Ncurses">wikipedia page on ncurses</a> and references there</li>
+<li>Register and login to <a href="http://www.library.ualberta.ca/databases_help/247_it/index.cfm">Books 24x7</a> from the UofA library web page, search for "curses", then read Chapter 6 of <em>Beginning Linux Programming</em>.&nbsp;<span><br></span></li>
+</ul>
+<p>When <span style="font-weight: bold;">linking</span> to create an executable, you must link in the curses library, <code>-lcurses</code></p>
+<p>As an initial step to using curses we highly recommend that you start with the following exercise: write C code to move a single line around on the screen, controlled by key clicks. Send drawSegment and eraseSegment instructions to Sketchpad to achieve this.</p>
+<h4><a name="rot"></a>Drawing and rotating your ship</h4>
+<p>You can store and draw your ship in similar ways as for the figures of assignments 1 and 2. When the corresponding left arrow or right arrow key is clicked, rotate the ship by 10 degrees each key click (see the instructions when the sample lander is run). The left arrow key rotates counter-clockwise, and the right arrow key clockwise. One easy way to rotate a ship is to:</p>
+<ul>
+<li>First, translate the ship so that its midpoint is at coordinates (0,0).</li>
+<li>Next, rotate it using the formula from Assignment 2.</li>
+<li>Finally, translate it back so that its midpoint is at its original position.</li>
+</ul>
+<p>Erase the old ship's lines before drawing the new rotated one. Alternatively, you could store your ship's coordinates relative to your chosen mid-point, and then update only that point appropriately as your ship is moved. A different approach is to first create your ship, compute its smallest and largest x and y coordinates, then determine the centre point as follows:</p>
+<p><code>centre_x = (min_x + max_x) / 2.0;</code><br><code>centre_y = (min_y + max_y) / 2.0;</code></p>
+<h4><a name="signals"></a>Having your ship fall using signals</h4>
+<p>You need to make your ship fall if the gravity is greater than zero. For example, if gravity = 9.8, the ship accelerates down faster than if gravity = 1.6. Your ship must accelerate according to the (simplified) laws of physics; the longer it falls, the faster it will become.</p>
+<p>You can simulate real time by using a counter and a "tight"-loop that approximates timing. We have not tested this way, but it should work.</p>
+<p>Our sample lander instead uses <span style="font-style: italic;">signals</span>, a concept that will be discussed in depth in CMPUT 379.</p>
+<ul>
+<li>Our lander creates a timer, which sends an alarm signal every 50000 microseconds = 0.05 seconds. At every signal, the position of the ship is updated, and it is redrawn.</li>
+<li>Critical code must be protected by ensuring that the signal does not interrupt. Code that updates your data structures, like your ship, and the cycle that erases your old ship and draws a new one, must not be interrupted. So, the alarm signal must be blocked for that time period.</li>
+</ul>
+<h4><a name="land"></a></h4>
+<p><span style="font-weight: bold;">timer.c</span> <span style="font-style: italic;"><span style="font-weight: bold;"> </span></span>is sample code taken directly from our lander. Read it and its comments to see how to create such a timer. (If you want more of a challenge, do not look at this sample code.)</p>
+<p>You can also read Chapter 10 in "Advanced Programming in the UNIX Environment: Second Edition" by Stevens (<a href="http://login.ezproxy.library.ualberta.ca/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=cat03710a&AN=alb.6141273&site=eds-live&scope=site" target="_blank">available online through U of A Libraries</a>, you will need to log in)</p>
+<p><a name="vel"></a>You can simulate the fall with a counter, likely, but lander uses the following <a href="http://en.wikipedia.org/wiki/Velocity">physics formulas</a>&nbsp;<span><br></span></p>
+<p><code> the_new_y = the_old_y + the_old_velocity * t + 1/2 * gravity * t*t<br>the_new_velocity = the_old_velocity + gravity * t </code></p>
+<p>t is the difference in time, set to 0.05 seconds in lander. lander has a counter in seconds, which is incremented by .05 each time the alarm signal is sent.</p>
+<h4>Landscape file</h4>
+<p>The file given with the -f option (<span style="font-weight: bold;">landscape.txt</span> is a sample) is a text file containing the following information:</p>
+<ul>
+<li>Each line contains exactly two whitespace-separated numbers that represent one point: first the x-coordinate, then y.</li>
+<li>Each number can safely be stored in a long.</li>
+<li>There will be at least 2 and at most 20 points.</li>
+<li>There may be trailing or leading whitespace on a line.</li>
+<li>You can assume that the file contains a usable series of points.</li>
+</ul>
+<p>Your program must draw the landscape as a series of line segments from the first to the second point, the second to the third, and so on.</p>
+<p>As soon as any line of your ship intersects any landscape line, your ship has either crashed or landed.</p>
+<h4><a name="thrust"></a>Thrust</h4>
+<p>When the space bar is pressed (use curses to recognize this event), your ship must respond to the thrust set by the -t option. Do this by calculating the y (vertical, represented as yA) and x (horizontal, represented by xA) acceleration:</p>
+<p><code> xA = thrust * cos(angle)<br>yA = gravity + thrust * sin(angle) </code></p>
+<p><code>angle</code> is the angle at which your ship is rotated with respect to thrust (also called your ship's attitude):</p>
+<ul>
+<li>Your ship is initially upright, so the angle should initially be 90 degrees, or PI/2 radians.</li>
+<li>If you rotate clockwise, increment the angle.</li>
+<li>If you rotate counterclockwise, decrement the angle.</li>
+</ul>
+<p>Now, you need to integrate xA and yA into your formulas for calculating your ships' new position and velocity as follows:</p>
+<ul>
+<li>The formula for the vertical velocity and position is given. You just need to use yA instead of gravity.</li>
+<li>Also maintain a horizontal velocity and position, using the same formula, except use xA instead of gravity.</li>
+</ul>
+<h4><a name="inter"></a>Detecting line segment intersection</h4>
+<p>To determine when your ship contacts the landscape, you need to determine if two line segments intersect.</p>
+<ul>
+<li>Our lander uses the rotation/translation formula at the bottom of this page: <a href="http://alienryderflex.com/intersect/">http://alienryderflex.com/intersect/</a><span><br></span></li>
+<li>An alternative which should work (but Stef wasn't able to get it to work): <a href="http://www.vb-helper.com/howto_segments_intersect.html"> http://www.vb-helper.com/howto_segments_intersect.html</a></li>
+</ul>
+<p>Compare each line segment in your ship to each line segment in the landscape using one of the above formulas.</p>
+<p>As soon as 2 line segments intersect: if the criteria for a landing are met, then you have landed, otherwise, you have crashed.</p>
+<h3><a name="more_hints"></a>More Hints</h3>
+<ul>
+<li>Our code is based on the Java Lunar Lander and Perl Lunar Lander supplied for reference. These codes may or may not run ... they have not been tested recently.<br><br></li>
+<li>Because <span style="font-style: italic;">curses </span>is used, it is difficult to write debug output with printf. Instead, you can write to another terminal window as follows:<ol>
+<li>Open another Terminal (called the <span style="font-style: italic;">display terminal</span> here) on the same machine.</li>
+<li>Type <span style="font-family: &#39;courier new&#39;, courier, monospace;">ps</span> at the <span style="font-style: italic;">display terminal</span>. Record what it says under TTY. It will be something like pts/1.</li>
+<li>Open a writable pipe to "dev/TTY", where TTY is something like pts/1. (e.g., "dev/pts/1").</li>
+<li>Use fprintf and fflush to write your debugging output to that pipe. This output will be shown in the <span style="font-style: italic;">display terminal</span> while your program is running.</li>
+</ol>Writing to a file, and of course using ddd/gdb may be useful for debugging, too. But make sure you do not write to a file in your final submission.</li>
+</ul>
+<h3><a name="c"></a>Learning Objectives</h3>
+<p>By the assignment due date, you will have used the following C and Linux concepts:</p>
+<ul>
+<li>reinforce many of the concepts from Assignment 1 and 2</li>
+<li>learn to use additional C libraries
+<ul>
+<li>curses - read and react to user keystrokes in real time</li>
+<li>signals - repeating event handling, real-time programming</li>
+</ul>
+</li>
+<li>computations - math (trigonometry and geometry) and implementing physics formulas</li>
+<li>Develop a program to closely match and improve the behavior of a given sample program</li>
+</ul>
+<h3><a name="sub"></a>Marking and Submission</h3>
+<p>Create a<span style="font-family: &#39;courier new&#39;, courier, monospace;"> submit.tar</span> with all your .c and .h files and a Makefile that creates a correct executable named <code>lander</code> that runs on the lab machines.</p>
+<p>Before submission, unpack your tar file to a new directory and check that it compiles and runs. If you are using memwatch, then submit the memwatch files, too; unlike for Assignment 2, they will not be provided when marking. Note that using memwatch is not required.</p>
+<p>Submit using the following astep command:</p>
+<pre> % astep -c c201 -p asn3 submit.tar</pre>
+<p></p>
+<h3><a name="guide"></a>A Marking Guideline</h3>
+<p>Roughly 80% of your mark will be for how well you mimicked the given lander executable:</p>
+<ul>
+<li>10% for drawing a ship at least as good as the given one, in very close to the same starting position. Your ship must be upright, and thrust must be pointing perfectly down.</li>
+<li>10% for reading in a landscape file from the -f option, and drawing the landscape.</li>
+<li>15% for rotating like the given lander
+<ul>
+<li>some of this mark is given to rotating while falling</li>
+</ul>
+</li>
+<li>15% for falling like the given lander: fall slower/faster in lower/higher gravity as specified by the -g option; noticeably accelerate as the lander falls, like our sample lander; fall at an acceleration similar to the given lander.</li>
+<li>15% for responding to thrust like the given lander: the higher the absolute value of the -t option, the more it accelerates; the ship can move diagonally and at any direction at higher absolute values of thrust and for low values of gravity.</li>
+<li>15% for detecting both a proper landing and a crash.</li>
+</ul>
+<p>Some of our testing will be done at zero gravity, so make sure your lander works in that case.<span style="font-style: italic;"><span style="font-weight: bold;"> </span></span></p>
+<p>The other 20% will be awarded for improving upon the given lander, likely 5% for small improvements and 10%<span style="font-style: italic;"><span style="font-weight: bold;"> </span></span>for each substantial improvement. <em><strong>The improvements must be simple and obvious, and concisely documented in your README.</strong></em></p>
+<p>Quality and style will not be marked (i.e., the style/quality rules marked for asn1 and 2 do <span style="font-weight: bold;">not</span> apply to asn3. Still, to keep your sanity, we highly recommend following good coding practices. Some marking will be by visual inspection - your code must seem to the human eye to run similar to the given lander.</p>
+<h3><a name="morepart2"></a>MORE ABOUT PART 2 - IMPROVING THE GIVEN LANDER</h3>
+<p>Some of your improvements may conflict with the goal of part 1, which is to mimic the behavior of our lander as closely as possible. If your improvement is in conflict, you need to deal with it as follows:</p>
+<ol>
+<li>By default, your lander should behave as in part 1.</li>
+<li>To activate these conflicting improvements, use a command-line option -i (for <span>i</span>mproved)</li>
+</ol>
+<p>For example,<br><code>./lander -g 5 -f landscape.txt -t -5</code> <br>would run your lander in part 1 (mimicking) mode,<br>while<br><code>./lander -g 5 -f landscape.txt -t -5 -i</code> <br>activates your improvements.<br><br>Your README file should indicate what your improvements are, and which of them are activated by the -i option.</p>
+<h4>Some ideas for Improvements</h4>
+<p>Some of the things students have implemented in the past:</p>
+<ul>
+<li>"perfect" command line arg checking (man 3 getopt) (small improvement)</li>
+<li>drawing a significantly better ship (adding a door is not drawing a significantly better ship)</li>
+<li>causing your ship to explode when it crashes (parts flying everywhere), and putting a "crash" or "landed" on the Sketchpad window</li>
+<li>zooming in when your ship gets close to the ground</li>
+<li>preventing the ship from going above the window (but, unlike the online lander, ensuring it isn't stuck), and smoothly wrapping around the right and left edges</li>
+<li>causing random asteroids to float by at various angles, destroying your ship if they collide (bigger job)</li>
+<li>having a graphical fuel gauge (vertical bar which becomes less filled as ship runs out of fuel)</li>
+<li>having multiple landing pads, where you can get different score points for landing on each one (like the sample online Java one)</li>
+</ul></div></div><div class="modified">Last modified: Sunday, 15 March 2015, 1:02 PM</div></div>        </section>
+
+        <div class="pull-right heading-button"></div>
+        <aside id="block-region-side-post" class="span3 column3 block-region" data-blockregion="side-post" data-droptarget="1"></aside>
+        <aside id="region-profile" class="column3"><div class="logininfo"><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138" title="View profile" class="userloginprofile"><img src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/f2" alt="Picture of Mohammad Sirajee" title="Picture of Mohammad Sirajee" class="nav_userpicture defaultuserpic" width="35" height="35">Mohammad Sirajee</a> <small>(</small> <a href="https://eclass.srv.ualberta.ca/login/logout.php?sesskey=vOEsivCG6E">Log out</a> <small>)</small></div><ul class="column3">
+<li><ul class="profile-nav">
+<li><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138">View profile</a><ul class="profile-child">
+</ul></li>
+<li><span>Forum posts</span><ul class="profile-child">
+<li><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138">Posts</a></li>
+<li><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&mode=discussions">Discussions</a></li>
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138">Posts</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/mod/forum/user.php?id=111138&mode=discussions">Discussions</a><ul class="profile-child">
+</ul></li>
+</ul></li>
+<li><ul class="profile-set">
+<li><a href="https://eclass.srv.ualberta.ca/user/edit.php?id=111138&course=20976">Edit profile</a><ul class="profile-child">
+</ul></li>
+<li><span>Portfolios</span><ul class="profile-child">
+<li><a href="https://eclass.srv.ualberta.ca/user/portfolio.php?courseid=20976">Configure</a></li>
+<li><a href="https://eclass.srv.ualberta.ca/user/portfoliologs.php?courseid=20976">Transfer logs</a></li>
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/user/managetoken.php?sesskey=vOEsivCG6E">Security keys</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/message/edit.php?id=111138">Messaging</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/user/portfolio.php?courseid=20976">Configure</a><ul class="profile-child">
+</ul></li>
+<li><a href="https://eclass.srv.ualberta.ca/user/portfoliologs.php?courseid=20976">Transfer logs</a><ul class="profile-child">
+</ul></li>
+</ul></li>
+</ul></aside>    </div>
+
+    <footer id="page-footer">
+        <div id="course-footer"></div>
+        <p class="helplink"></p>
+        <div class="logininfo"><a href="https://eclass.srv.ualberta.ca/user/profile.php?id=111138" title="View profile" class="userloginprofile"><img src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/f2" alt="Picture of Mohammad Sirajee" title="Picture of Mohammad Sirajee" class="nav_userpicture defaultuserpic" width="35" height="35">Mohammad Sirajee</a> <small>(</small> <a href="https://eclass.srv.ualberta.ca/login/logout.php?sesskey=vOEsivCG6E">Log out</a> <small>)</small></div><div class="homelink"><a href="https://eclass.srv.ualberta.ca/course/view.php?id=20976">CMPUT 201 (Winter 2015 LEC B1 EB1)</a></div>    </footer>
+    <script type="text/javascript" src="./CMPUT 201 (Winter 2015 LEC B1 EB1)  Assignment 3_files/footer"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Last modified","name":"Name","error":"Error","info":"Information","viewallcourses":"View all courses","morehelp":"More help","loadinghelp":"Loading...","cancel":"Cancel","yes":"Yes","confirm":"Confirm","no":"No","areyousure":"Are you sure?","closebuttontitle":"Close","unknownerror":"Unknown error"},"repository":{"type":"Type","size":"Size","invalidjson":"Invalid JSON string","nofilesattached":"No files attached","filepicker":"File picker","logout":"Logout","nofilesavailable":"No files available","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"File exists","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Rename to \"{$a}\"","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source","select":"Select"},"admin":{"confirmation":"Confirmation"}};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var navtreeexpansions4 = [{"id":"expandable_branch_30_271312","key":"271312","type":30},{"id":"expandable_branch_30_271362","key":"271362","type":30},{"id":"expandable_branch_30_271363","key":"271363","type":30},{"id":"expandable_branch_30_271364","key":"271364","type":30},{"id":"expandable_branch_30_271365","key":"271365","type":30},{"id":"expandable_branch_30_271366","key":"271366","type":30},{"id":"expandable_branch_30_271367","key":"271367","type":30},{"id":"expandable_branch_30_271368","key":"271368","type":30},{"id":"expandable_branch_30_271369","key":"271369","type":30},{"id":"expandable_branch_30_271370","key":"271370","type":30},{"id":"expandable_branch_30_271371","key":"271371","type":30},{"id":"expandable_branch_30_284005","key":"284005","type":30},{"id":"expandable_branch_30_284006","key":"284006","type":30},{"id":"expandable_branch_30_284007","key":"284007","type":30},{"id":"expandable_branch_0_mycourses","key":"mycourses","type":0}];
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+YUI().use('node', function(Y) {
+M.util.load_flowplayer();
+setTimeout("fix_column_widths()", 20);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"4","instance":"4","candock":false,"courselimit":"100","expansionlimit":0});
+});
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-block_navigation-navigation",function() {M.block_navigation.init_add_tree({"id":"5","instance":"5","candock":false});
+});
+M.util.help_popups.setup(Y);
+M.yui.galleryversion="2010.04.08-12-35";Y.use("moodle-core-popuphelp",function() {M.core.init_popuphelp();
+});
+M.util.init_block_hider(Y, {"id":"inst4","title":"Navigation","preference":"block4hidden","tooltipVisible":"Hide Navigation block","tooltipHidden":"Show Navigation block"});
+M.util.init_block_hider(Y, {"id":"inst5","title":"Administration","preference":"block5hidden","tooltipVisible":"Hide Administration block","tooltipHidden":"Show Administration block"});
+ M.util.js_pending('random5520f67621ea54'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random5520f67621ea54'); });
+
+});
+//]]>
+</script>
+
+</div>
+
+
+</body></html>

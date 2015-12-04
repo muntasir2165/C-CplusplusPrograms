@@ -1,0 +1,46 @@
+name:               Mohammad Sirajee
+ONE Card number:    1255986
+Unix id:            sirajee
+lecture section:    EB1
+instructor's name:  Jacqueline Smith
+lab section:        EH02
+TA's name:          Nicolas Barriga, Shida He,
+                    and Rong Feng
+
+This program does the following:
+-Print a start-up message to stdout stating the
+name of the executable, the time the program is
+executed and the name of the input file the program
+is run on
+-Open the input file and a pipe to a child process.
+In case of failure trying to open either of the two,
+the program exits  
+-Read the input file line by line
+-Check if the first string/token/word in each
+line matches up with one of the six keywords in
+the "little" language for graphics
+-As soon as the program finds a match, it delegates
+the line processing acitivity to a function
+specifically written to accomplish that goal. This
+is how comments and image information get printed to
+stdout, image information are added to the memory
+storage, image drawing and child commands are sent
+to Sketchpad via the child process and image
+coordinates are translated
+-Repeat the above three steps until the program
+reaches the end of the file
+-Close the input file and terminate the child preocess
+
+(see draw2.c comments for more detail)
+
+Compile by typing make.
+
+Ensure an input file (e.g., inputfile.4) is present in
+the current directory, and run by typing
+
+./draw2 ./inputfile.4
+
+where inputfile.4 is a text file containg valid input for draw2.c.
+
+I did not collaborate with anyone. However, I received valuable
+guidance from the course instructor and lab TAs.

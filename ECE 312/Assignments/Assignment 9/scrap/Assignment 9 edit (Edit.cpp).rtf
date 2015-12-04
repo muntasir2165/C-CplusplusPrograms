@@ -1,0 +1,197 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 Consolas;}
+{\colortbl;\red255\green255\blue255;\red0\green128\blue0;\red0\green0\blue255;\red163\green21\blue21;
+\red128\green128\blue128;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs19 \cf2 // ECE 312 LEC A1\cf0 \
+\cf2 // Assignment 9, Fall 2014\cf0 \
+\cf2 // Author: Mohammad Sirajee\cf0 \
+\cf2 // Student ID: 1255986\cf0 \
+\cf2 // Percent Original: \cf0 \
+\cf2 // Other Contributors: \cf0 \
+\
+\cf3 #include\cf0  \cf4 <math.h>\cf0  \cf2 // For standard C math functions\cf0 \
+\
+\
+\cf2 /* A sign function with threshold that\cf0 \
+\cf2 determines the sign\cf0 \
+\
+\cf2 Inputs:\cf0 \
+\cf2 u_in - an input (e.g., fron an ADC) passed by value\cf0 \
+\cf2 u_th - a threshold passed by value\cf0 \
+\
+\cf2 Output:\cf0 \
+\cf2 y_sign - the sign output with possible values - 1, -1, or 0\cf0 \
+\cf2 		 where 1 indicates positive, \cf0 \
+\cf2 		 	  -1 indicates negative, and\cf0 \
+\cf2 		       0 indicates to sign change\cf0 \
+\cf2 */\cf0 \
+\
+\cf3 int\cf0  signFunction(\cf3 int\cf0  \cf5 u_in\cf0 , \cf3 int\cf0  \cf5 u_th\cf0 ) \{\
+	\cf3 int\cf0  y_sign;\
+\
+	\cf3 if\cf0  (\cf5 u_in\cf0  > abs(\cf5 u_th\cf0 )) \{\
+		y_sign = 1;\
+	\}\
+	\cf3 else\cf0  \cf3 if\cf0  (\cf5 u_in\cf0  < -abs(\cf5 u_th\cf0 )) \{\
+		y_sign = -1;\
+	\}\
+	\cf3 else\cf0  \{\
+		y_sign = 0;\
+	\}\
+\
+	\cf3 return\cf0  y_sign;\
+\}\
+\
+\cf2 /* A zero-crossing detector function with hysteresis\cf0 \
+\cf2 that determines whether the signal crosses zero on \cf0 \
+\cf2 the x_axis\cf0 \
+\
+\cf2 Inputs:\cf0 \
+\cf2 y_sign - The output from the sign function\cf0 \
+\cf2 x_zc - a state variable for the zero-crossing detector\cf0 \
+\cf2 	   subsystem\cf0 \
+\
+\cf2 Output:\cf0 \
+\cf2 y_zc - the binary output with possible values - 1 or 0\cf0 \
+\cf2 		 where 1 indicates ___, and\cf0 \
+\cf2 		       0 indicates ___\cf0 \
+\cf2 */\cf0 \
+\
+\cf3 int\cf0  zeroCrossDetector(\cf3 int\cf0  \cf5 y_sign\cf0 , \cf3 int\cf0 * \cf5 x_zc\cf0 ) \{\
+	\cf3 int\cf0  y_zc;\
+	\
+	\cf3 if\cf0  (\cf5 y_sign\cf0  * *\cf5 x_zc\cf0  < 0) \{\
+		y_zc = 1;\
+	\}\
+	\cf3 else\cf0  \{\
+		y_zc = 0;\
+	\}\
+\
+	\cf2 //calculations to determine the state for the\cf0 \
+	\cf2 //next moment in time i.e., the (n+1)th moment\cf0 \
+	\cf3 if\cf0  (\cf5 y_sign\cf0  > 0) \{\
+		*\cf5 x_zc\cf0  = 1;\
+	\}\
+	\cf3 else\cf0  \cf3 if\cf0  (\cf5 y_sign\cf0  < 0) \{\
+		*\cf5 x_zc\cf0  = -1;\
+	\}\
+\
+	\cf3 return\cf0  y_zc;\
+\}\
+\
+\
+\cf2 /* A counter function that implements a counter with\cf0 \
+\cf2 non-zero trigger\cf0 \
+\
+\cf2 Inputs:\cf0 \
+\cf2 y_zc - The output from the zero-crossing detector function\cf0 \
+\cf2 x_c - a state variable for the counter subsystem\cf0 \
+\
+\cf2 Output:\cf0 \
+\cf2 y_zcc - the output from the Digital Signal Processor (DSP)\cf0 \
+\cf2 */\cf0 \
+\cf3 int\cf0  counter(\cf3 int\cf0  \cf5 y_zc\cf0 , \cf3 int\cf0 * \cf5 x_c\cf0 ) \{\
+	\cf3 int\cf0  y_zcc;\
+	\
+	\cf3 if\cf0  (\cf5 y_zc\cf0  != 0) \{\
+		y_zcc = *\cf5 x_c\cf0  + 1;\
+	\}\
+	\cf3 else\cf0  \{\
+		y_zcc = 0;\
+	\}\
+\
+	\cf2 //calculations to determine the state for the\cf0 \
+	\cf2 //next moment in time i.e., the (n+1)th moment\cf0 \
+	\cf3 if\cf0  (\cf5 y_zc\cf0  != 0) \{\
+		*\cf5 x_c\cf0  = 0;\
+	\}\
+	\cf3 else\cf0  \{\
+		*\cf5 x_c\cf0  = *\cf5 x_c\cf0  + 1;\
+	\}\
+\
+	\cf3 return\cf0  y_zcc;\
+\}\
+\
+\cf2 /* A zero-crossing detector function, with hysteresis\cf0 \
+\cf2 for robustness, that also counts the number of samples\cf0 \
+\cf2 between zero crossings.\cf0 \
+\
+\cf2 The two static local int variables x_zc and x_c are state\cf0 \
+\cf2 variables that keep track of the past states of the zero-\cf0 \
+\cf2 crossing detector and counter functions respectively. The\cf0 \
+\cf2 initial states are taken to be zero and thus, x_zc and x_c\cf0 \
+\cf2 are intialized to be 0.\cf0 \
+\
+\cf2 Inputs:\cf0 \
+\cf2 u_in - an input (e.g., fron an ADC) passed by value\cf0 \
+\cf2 u_th - a threshold passed by value\cf0 \
+\
+\cf2 Output:\cf0 \
+\cf2 y_zcc - the output from the Digital Signal Processor (DSP)\cf0 \
+\cf2 */\cf0 \
+\cf3 int\cf0  zeroCrossCounter(\cf3 int\cf0  \cf5 u_in\cf0 , \cf3 int\cf0  \cf5 u_th\cf0 ) \{\
+\
+	\cf2 //all initial states are taken to be zero\cf0 \
+	\cf3 static\cf0  \cf3 int\cf0  x_zc = 0;\
+	\cf3 static\cf0  \cf3 int\cf0  x_c = 0;\
+\
+	\cf3 int\cf0  y_sign = signFunction(\cf5 u_in\cf0 , \cf5 u_th\cf0 );\
+	\cf3 int\cf0  y_zc = zeroCrossDetector(y_sign, &x_zc);\
+	\cf3 int\cf0  y_zcc = counter(y_zc, &x_c);\
+\
+	\cf3 return\cf0  y_zcc;\
+\
+	\cf2 /*\cf0 \
+\cf2 	int y_sign;\cf0 \
+\cf2 	if (u_in > abs(u_th)) \{\cf0 \
+\cf2 	y_sign = 1;\cf0 \
+\cf2 	\}\cf0 \
+\cf2 	else if (u_in < -abs(u_th)) \{\cf0 \
+\cf2 	y_sign = -1;\cf0 \
+\cf2 	\}\cf0 \
+\cf2 	else \{\cf0 \
+\cf2 	y_sign = 0;\cf0 \
+\cf2 	\}\cf0 \
+\
+\
+\cf2 	int y_zc;\cf0 \
+\cf2 	static int x_zc = 0;\cf0 \
+\cf2 	if (y_sign*x_zc < 0) \{\cf0 \
+\cf2 	y_zc = 1;\cf0 \
+\cf2 	\}\cf0 \
+\cf2 	else \{\cf0 \
+\cf2 	y_zc = 0;\cf0 \
+\cf2 	\}\cf0 \
+\
+\cf2 	if (y_sign > 0) \{\cf0 \
+\cf2 	x_zc = 1;\cf0 \
+\cf2 	\}\cf0 \
+\cf2 	else if (y_sign < 0) \{\cf0 \
+\cf2 	x_zc = -1;\cf0 \
+\cf2 	\}\cf0 \
+\
+\
+\cf2 	int y_zcc;\cf0 \
+\cf2 	static int x_c = 0;\cf0 \
+\cf2 	if (y_zc != 0) \{\cf0 \
+\cf2 	y_zcc = x_c + 1;\cf0 \
+\cf2 	\}\cf0 \
+\cf2 	else \{\cf0 \
+\cf2 	y_zcc = 0;\cf0 \
+\cf2 	\}\cf0 \
+\
+\cf2 	if (y_zc != 0) \{\cf0 \
+\cf2 	x_c = 0;\cf0 \
+\cf2 	\}\cf0 \
+\cf2 	else \{\cf0 \
+\cf2 	x_c = x_c + 1;\cf0 \
+\cf2 	\}\cf0 \
+\
+\
+\cf2 	return y_zcc;\cf0 \
+\cf2 	*/\cf0 \
+\}\
+}

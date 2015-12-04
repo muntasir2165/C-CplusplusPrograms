@@ -1,0 +1,7 @@
+This assignment builds on top of assignment 1b
+
+Two big things to do for this assignment are memory management/allocation and error handling.
+
+do we need to worry about blank/whitespaced lines inside image definitions?...yes
+
+is there any limit on the number of points there can be in an image definition...like the first assignment's upper limit of 16?...no upper limit

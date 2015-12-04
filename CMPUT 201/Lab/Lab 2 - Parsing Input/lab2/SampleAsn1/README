@@ -1,0 +1,14 @@
+Sample Assignment 1 code.  Only similar in file structure, and, when
+run with online input file, on output produced to sketchpad.
+
+draw1.c and draw1.h code are incorrect.
+
+Compile by typing make.
+
+Run by typing ./draw1 ./inputfile.1
+
+Note, as this is just an example, the input file in this case doesn't
+matter; it will always produce the same output.
+
+When coding, for example for your Assignment 1, you must ensure your
+code properly uses the specified input file.

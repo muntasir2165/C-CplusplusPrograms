@@ -1,0 +1,79 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 Consolas;}
+{\colortbl;\red255\green255\blue255;\red0\green128\blue0;\red0\green0\blue255;\red163\green21\blue21;
+\red43\green145\blue175;\red128\green128\blue128;\red111\green0\blue138;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs19 \cf2 /* ECE 312 LEC A1\cf0 \
+\cf2 Assignment 1, Fall 2014\cf0 \
+\cf2 EDIT AND SUBMIT THIS FILE\cf0 \
+\cf2 Name: Mohammad Sirajee\cf0 \
+\cf2 Student ID: 1255986\cf0 \
+\cf2 Percent Original:\cf0 \
+\cf2 Other Contributors:\cf0 \
+\cf2 */\cf0 \
+\cf3 #include\cf0  \cf4 <stdlib.h>\cf0  \cf2 // Use for memory allocation\cf0 \
+\cf3 #include\cf0  \cf4 <string.h>\cf0  \cf2 // Use for memory copying\cf0 \
+\cf3 #include\cf0  \cf4 "Queue.h"\cf0  \cf2 // Use custom queue code\cf0 \
+\
+\cf3 bool\cf0  qInit(\cf5 QUEUE\cf0 & \cf6 q\cf0 , \cf5 size_t\cf0  \cf6 each\cf0 , \cf3 unsigned\cf0  \cf3 int\cf0  \cf6 max\cf0 , \cf3 unsigned\cf0  \cf3 int\cf0  \cf6 min\cf0 ) \{\
+	\cf6 q\cf0 .bytesTotal = \cf6 each\cf0 *\cf6 max\cf0 ; \cf2 // Compute heap memory required\cf0 \
+	\cf3 if\cf0  (\cf6 q\cf0 .bytesTotal) \{ \cf2 // Allocate heap memory if needed\cf0 \
+		\cf6 q\cf0 .memPtr = (\cf3 char\cf0  *)malloc(\cf6 q\cf0 .bytesTotal); \cf2 // Cast to typed pointer\cf0 \
+		\cf3 if\cf0  (\cf6 q\cf0 .memPtr) \{\
+			\cf6 q\cf0 .bytesEach = \cf6 each\cf0 ; \cf2 // Save message size for puts/gets\cf0 \
+			\cf6 q\cf0 .thresh = \cf6 min\cf0 ; \cf2 // Minimum message count (limits gets)\cf0 \
+			\cf6 q\cf0 .count = 0; \cf2 // Initially, the queue has no messages\cf0 \
+			\cf6 q\cf0 .headPtr = \cf6 q\cf0 .memPtr; \cf2 // Position for first message\cf0 \
+			\cf6 q\cf0 .tailPtr = \cf6 q\cf0 .memPtr; \cf2 // Position for first message\cf0 \
+		\}\
+		\cf3 else\cf0  \cf3 return\cf0  \cf3 false\cf0 ; \cf2 // Memory allocation failed\cf0 \
+	\}\
+	\cf3 else\cf0  \cf6 q\cf0 .memPtr = 0; \cf2 // No heap memory is needed\cf0 \
+	\cf3 return\cf0  \cf3 true\cf0 ; \cf2 // Initialization succeeded\cf0 \
+\}\
+\
+\cf3 bool\cf0  qPutMsg(\cf5 QUEUE\cf0 & \cf6 q\cf0 , \cf3 const\cf0  \cf3 void\cf0  *\cf6 msgPtr\cf0 ) \{\
+	\cf3 if\cf0  (\cf6 msgPtr\cf0  != \cf7 NULL\cf0  && \cf6 q\cf0 .memPtr != \cf7 NULL\cf0 ) \{\
+		\cf3 if\cf0  ((\cf6 q\cf0 .bytesEach * \cf6 q\cf0 .count) < \cf6 q\cf0 .bytesTotal) \{\
+			memcpy(\cf6 q\cf0 .headPtr, \cf6 msgPtr\cf0 , \cf6 q\cf0 .bytesEach);\
+			\cf6 q\cf0 .headPtr = \cf6 q\cf0 .headPtr + \cf6 q\cf0 .bytesEach;\
+			\cf6 q\cf0 .count++;\
+			\cf3 return\cf0  \cf3 true\cf0 ;\
+		\}\
+		\cf3 else\cf0  \{\
+			\cf6 q\cf0 .headPtr = \cf6 q\cf0 .tailPtr;\
+			\cf3 return\cf0  \cf3 false\cf0 ;\
+		\}\
+	\}\
+	\cf3 else\cf0  \{\
+		\cf3 return\cf0  \cf3 false\cf0 ;\
+	\}\
+	\cf2 //return false; // Put failed\cf0 \
+\}\
+\
+\cf3 bool\cf0  qGetMsg(\cf5 QUEUE\cf0 & \cf6 q\cf0 , \cf3 void\cf0  *\cf6 msgPtr\cf0 ) \{\
+	\cf3 if\cf0  (\cf6 msgPtr\cf0  && \cf6 q\cf0 .memPtr) \{\
+		\cf3 if\cf0  (\cf6 q\cf0 .count >= \cf6 q\cf0 .thresh) \{\
+			memcpy(\cf6 msgPtr\cf0 , \cf6 q\cf0 .tailPtr, \cf6 q\cf0 .bytesEach);\
+			\cf6 q\cf0 .tailPtr = \cf6 q\cf0 .tailPtr + \cf6 q\cf0 .bytesEach;\
+			\cf6 q\cf0 .count--;\
+			\cf3 return\cf0  \cf3 true\cf0 ;\
+		\}\
+		\cf3 else\cf0  \{\
+			\cf3 return\cf0  \cf3 false\cf0 ;\
+		\}\
+	\}\
+	\cf3 else\cf0  \{\
+		\cf3 return\cf0  \cf3 false\cf0 ;\
+	\}\
+	\cf2 //memset(msgPtr, 0, q.bytesEach); // Zero message\cf0 \
+	\cf2 //return true; // Get succeeded\cf0 \
+\}\
+\
+\cf3 void\cf0  qFree(\cf5 QUEUE\cf0 & \cf6 q\cf0 ) \{\
+	free(\cf6 q\cf0 .memPtr); \cf2 // Deallocate heap memory\cf0 \
+	\cf6 q\cf0 .memPtr = 0; \cf2 // Signifies invalid queue\cf0 \
+\}\
+}

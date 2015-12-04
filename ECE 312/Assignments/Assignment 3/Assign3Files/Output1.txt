@@ -1,0 +1,4 @@
+Number of hardware thread contexts: 4
+
+    Rows    Cols    Reps        TSeq        TCon        RMSE
+       9       5       1       0.015           0      0.5296

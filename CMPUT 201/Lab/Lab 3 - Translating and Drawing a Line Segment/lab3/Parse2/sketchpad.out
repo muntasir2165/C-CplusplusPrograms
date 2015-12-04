@@ -1,0 +1,23 @@
+drawSegment 100 100 200 200
+drawSegment 130 150 230 250
+drawSegment 200 200 300 300
+drawSegment 230 250 330 350
+drawSegment 10 10 400 10
+drawSegment 40 60 430 60
+drawSegment 400 10 400 400
+drawSegment 430 60 430 450
+drawSegment 400 400 10 400
+drawSegment 430 450 40 450
+drawSegment 10 400 10 10
+drawSegment 40 450 40 60
+drawSegment 120 130 220 230
+drawSegment 150 180 250 280
+drawSegment 220 230 320 330
+drawSegment 250 280 350 380
+drawSegment 96 149 177 265
+drawSegment 126 199 207 315
+drawSegment 177 265 258 381
+drawSegment 207 315 288 431
+pause 2
+clearScreen
+end

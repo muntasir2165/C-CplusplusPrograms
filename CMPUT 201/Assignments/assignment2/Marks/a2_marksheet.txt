@@ -1,0 +1,50 @@
+CMPUT 201 Winter 2015
+Assignment 2
+
+Total: 92/100
+TA Comments: 
+The main function is too long and make the logic hard to trace. Better use more smaller functions to do simpler things seperately. 
+
+CORRECTNESS
+
+Total marks: 66/70
+
+1. Handles an arbitrary number of images 9/10
+2. Handles an arbitrary number of lines within an image 10/10
+3. Handles redefining an image 5/5
+4. Images can be rotated 10/10
+5. Handles blank line in input file 3/3
+6. Handles leading whitespace for comment 3/3
+7. Handles leading whitespace for other commands 3/3
+8. Correctly reports unmatched Image and End image names 5/5
+9. Correctly handles missing token on draw command 3/3
+10. Correctly handles missing token on translate command 3/3
+11. Correctly handles lineTo outside of image definition 3/3
+12. Correctly handles unrecognized first token 3/3
+13. Correctly handles child command inside image definition 3/3
+14. Correctly handles printing an undefined image 0/3
+15. Correctly handles incorrect command line arguments (0, 2, or invalid file) 3/3
+
+STYLE
+
+Total marks: 26/30
+
+Modularization: 13/15
+* Code is broken into modules 10/10
+* Modules are chosen reasonably 3/5
+  (ie. not too many, not too few, logical grouping of related functions)
+
+Code Quality: 12/15
+* Checks return values of system calls (fopen, fscanf)
+* Simple solutions over complex solutions
+* No unnecessarily inefficient algorithms
+* Compiles without warnings
+* Minimizes global variable use
+* Functions do one thing
+* Readable code (indentation, naming, comments, etc)
+* Includes student info header in each file
+* README file has description & instructions
+
+DEDUCTIONS: 
+- 30% (30 marks) if memwatch is not set up properly
+- zero overall if does not compile

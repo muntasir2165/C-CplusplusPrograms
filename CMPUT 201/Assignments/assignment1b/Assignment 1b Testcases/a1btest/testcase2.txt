@@ -1,0 +1,10 @@
+# Test Case 2 - tests creating and printing a single image
+Image A 200 200 =
+lineTo 50 -100
+lineTo 50 100
+lineTo -110 -66
+lineTo 120 0
+lineTo -110 66
+End Image A
+print A
+child end

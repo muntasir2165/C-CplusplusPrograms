@@ -1,0 +1,50 @@
+name:               Mohammad Sirajee
+ONE Card number:    1255986
+Unix id:            sirajee
+lecture section:    EB1
+instructor's name:  Jacqueline Smith
+lab section:        EH02
+TA's name:          Nicolas Barriga, Shida He,
+                    and Rong Feng
+
+This program does the following:
+-Print a start-up message to stdout stating the name of the executable, the
+ time the program is executed and the name of the input file the program is
+ run on
+-Open the input file and a pipe to a child process. In case of failure trying
+ to open either of the two, the program exits with EXIT_FAILURE after proper
+ error handling 
+-Read the input file line by line
+-Check if the first string/token/word in each line matches up with one of the
+ six keywords in the "little" language for graphics. If there are whitespaces
+ before the first token, ignore them
+-As soon as the program finds a match, it delegates the line processing
+ acitivity to a function specifically written to accomplish that goal. This is
+ how comments and image information get printed to stdout; image information
+ is added in the memory storage; images are translated and rotated; and image
+ drawing and child commands are sent to Sketchpad via the child process.
+ -While performing all the abovementioned tasks, the inputs are checked for
+  invalid inputs, such as - invalid tokens, incorrect number and type of
+  tokens, and undefined images that require some kind of processing.
+ -If an error is encountered, we stop processing the input file further. We
+  print the line number (where the error was encountered) to stderr, close all
+  open files and pipes, free up allocated memory space and exit the program
+  with EXIT_FAILURE
+-Repeat the above three steps until the program reaches the end of the file
+-Close the input file, terminate the child process, free up previously
+ allocated memory and exit the program
+
+(see draw2.c and functions.c comments for more detail)
+
+Compile by typing make.
+
+Ensure an input file (e.g., inputfile.4) is present in
+ the current directory, and run by typing
+
+./draw2 ./inputfile.4
+
+where inputfile.4 is a text file containg valid (and maybe some invalid) input
+ for draw2.c.
+
+I did not collaborate with anyone. However, I received valuable guidance from
+ the course instructor and lab TAs.

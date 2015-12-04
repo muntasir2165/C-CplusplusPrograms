@@ -1,0 +1,7 @@
+# Test Case 8 - tests use of doubles
+Image A 2500000000 2500000000 =
+lineTo 100 100
+lineTo -100 100
+End Image A
+print A
+child end

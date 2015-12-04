@@ -1,0 +1,35 @@
+# name:               Mohammad Sirajee
+# ONE Card number:    1255986
+# Unix id:            sirajee
+# lecture section:    EB1
+# instructor's name:  Jacqueline Smith
+# lab section:        EH02
+# TA's name:          Nicolas Barriga, Shida He,
+#                     and Rong Feng
+#
+# Creates a lander executable, and provides a make clean.
+#
+
+lander: lander.o functions.o
+	gcc -std=c99 -Wall lander.o functions.o -o lander -lm -lcurses
+
+lander.o: lander.c
+	gcc -Wall -std=c99 -c lander.c
+
+functions.o: functions.c
+	gcc -Wall -std=c99 -c functions.c -D_POSIX_C_SOURCE
+
+run1:
+	./lander -g 0 -t -5 -f landscape.txt
+
+run2:
+	./lander -g 9.8 -t -20 -f landscape.txt
+
+run3:
+	./lander -g 1.6 -t -5 -f landscape.txt
+
+clean:
+	-rm -f *.o lander core
+
+submit.tar: lander.c functions.c lander.h Makefile README landscape.txt Sketchpad.jar
+	tar cvf submit.tar lander.c functions.c lander.h Makefile README landscape.txt Sketchpad.jar

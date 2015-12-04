@@ -1,0 +1,30 @@
+#1 _.5_ /.5 draws given landscape file
+
+
+
+#2 _1__ /1 proper or better ship drawn in proper position
+ with proper orientation
+
+#3 _.25 /.25 must press q to quit
+
+#4 _.25 /1 rotates properly
+    ship rotates off centre and deform if thrust is applied when not at 90
+    degrees
+
+
+#5 __1_ /1 moves "any" direction
+
+#6 __0_ /1 ship crashes
+    ship goes through floor
+
+#7 __0__ /.25 must press any key to start
+    game starts immediately
+
+
+#8 _0___ /1 can land ship (tests thrust and landing)
+
+#9 _.5_ /.5 rotates while falling
+
+#10 _1.5 /1.5 falls
+
+#11 _0__ /2 improvements on online lander

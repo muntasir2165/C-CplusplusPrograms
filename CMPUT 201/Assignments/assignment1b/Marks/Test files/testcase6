@@ -1,0 +1,41 @@
+# Test Case 6 - tests redefining and drawing multiple images
+Image A 100 100 =
+# Image A (2 diagonal line segments)
+lineTo 100 100
+lineTo -100 100
+End Image A
+draw A
+Image B 200 200 =
+# Image B (2 diagonal line segments)
+lineTo 100 100
+lineTo -100 100
+End Image B
+draw A
+draw B
+print A
+print B
+child pause 5
+child clearScreen
+# redefinition of image A
+Image A 200 200 =
+lineTo 50 -100
+lineTo 50 100
+lineTo -110 -66
+lineTo 120 0
+lineTo -110 66
+End Image A
+translate A 50 50
+Image B 100 100 =
+lineTo 50 -100
+lineTo 50 100
+lineTo -110 -66
+lineTo 120 0
+lineTo -110 66
+End Image B
+draw A
+draw B
+print A
+print B
+child pause 5
+child clearScreen
+child end

@@ -1,0 +1,10 @@
+Type make to compile avrg.c and create executable avrg.
+
+run by ./avrg ./input (where input is a text file containing 1 int per
+line.)
+
+Ensure memwatch.c and memwatch.h are in your working dir.
+
+See the Makefile and other code for what other programs are used for.
+
+(This README's style blows)

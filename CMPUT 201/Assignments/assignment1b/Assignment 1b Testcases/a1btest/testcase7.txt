@@ -1,0 +1,11 @@
+# Test Case 7 - tests long image name and printing empty image
+Image ARelativelyLongImageNameForThisImage 100 100 =
+lineTo 100 100
+lineTo -100 100
+End Image ARelativelyLongImageNameForThisImage
+print ARelativelyLongImageNameForThisImage
+# An empty image
+Image Empty 50 50 =
+End Image Empty
+print Empty
+child end

@@ -1,0 +1,18 @@
+Design:
+
+Phase 1:
+--------
+1) Read in the command line arguments
+	-check that we have the right number of arguments
+	-if possible, try to implement a version where the order of the arguments don't matter
+	as long as they are preceded by the appropriate flag
+2) Assign the read arguments to the appropriate variables
+3) Put the read in points from the landscape.txt file into a structure image array (or not!) to be passed to Sketchpad for drawing the landscape
+4) Draw the lunar module
+	-place the module in the top middle of the Sketchpad window
+5) Implement functions that simulate the lunar lander falling
+6) Implement the time functionality in the program by incorporating specific functions
+7) Write code such that the program is responsive to keyboard inputs...start with spacebar and 'q' input
+8) Implement lunar rotation functionality into the program
+9) Try to simulate the game such that it mirrors the given executable
+10) 

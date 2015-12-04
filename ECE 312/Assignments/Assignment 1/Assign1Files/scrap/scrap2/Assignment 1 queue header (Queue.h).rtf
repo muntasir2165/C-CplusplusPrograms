@@ -1,0 +1,70 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 Consolas;}
+{\colortbl;\red255\green255\blue255;\red0\green128\blue0;\red0\green0\blue255;\red111\green0\blue138;
+\red43\green145\blue175;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs19 \cf2 /* ECE 312 LEC A1\cf0 \
+\cf2 Assignment 1, Fall 2014\cf0 \
+\cf2 EDIT AND SUBMIT THIS FILE\cf0 \
+\cf2 Name: \cf0 \
+\cf2 Student ID: \cf0 \
+\cf2 */\cf0 \
+\cf3 #ifndef\cf0  QUEUE_H \cf2 // Has the preprocessor already included this file?\cf0 \
+\cf3 #define\cf0  \cf4 QUEUE_H\cf0  \cf2 // If not then prevent it from been included twice.\cf0 \
+\
+\cf2 /* This structure encapsulates all parameters of a queue for messages of equal\cf0 \
+\cf2 but arbitrary size. The queue employs a circular buffer. Standard operations\cf0 \
+\cf2 are defined below. If memPtr is 0 (NULL) then the queue is invalid.\cf0 \
+\cf2 */\cf0 \
+\cf3 struct\cf0  \cf5 QUEUE\cf0  \{\
+	\cf5 size_t\cf0  bytesTotal; \cf2 // Number of bytes allocated for queue messages\cf0 \
+	\cf3 char\cf0  *memPtr; \cf2 // Pointer to memory allocated for queue messages\cf0 \
+	\cf5 size_t\cf0  bytesEach; \cf2 // Number of bytes for each queue message\cf0 \
+	\cf3 unsigned\cf0  \cf3 int\cf0  thresh; \cf2 // Threshold number of messages for gets\cf0 \
+	\cf3 unsigned\cf0  \cf3 int\cf0  count; \cf2 // Number of valid messages in the queue\cf0 \
+	\cf3 char\cf0  *headPtr; \cf2 // Pointer to queue head (for next put)\cf0 \
+	\cf3 char\cf0  *tailPtr; \cf2 // Pointer to queue tail (for next get)\cf0 \
+\};\
+\
+\cf2 /* This function initializes a QUEUE, q, passed by reference (output variable)\cf0 \
+\cf2 and returns true/false if successful/unsuccessful. Input variables each, max,\cf0 \
+\cf2 and min specify the message size in bytes, the maximum number of messages, and\cf0 \
+\cf2 a threshold number. To get a message, the number of messages must exceed the\cf0 \
+\cf2 threshold. Initialization fails if sufficient memory cannot be allocated.\cf0 \
+\cf2 */\cf0 \
+\cf3 bool\cf0  qInit(\cf5 QUEUE\cf0 & q, \cf5 size_t\cf0  each, \cf3 unsigned\cf0  \cf3 int\cf0  max, \cf3 unsigned\cf0  \cf3 int\cf0  min = 0);\
+\
+\cf2 /* This function puts a message on a queue (queue's head) on a first-come,\cf0 \
+\cf2 first-served (FIFO) basis. In other words, this function enqueues the message.\cf0 \
+\
+\cf2 q -- the (starting memory address of the) queue we want to put the message in\cf0 \
+\cf2 msgPtr -- the memory location from which the message should be copied to the queue\cf0 \
+\
+\cf2 returns a boolean:\cf0 \
+\cf2 true -- if the message is placed on the queue\cf0 \
+\cf2 false -- if the memPtr or msgPtr is NULL or if the queue is full\cf0 \
+\cf2 */\cf0 \
+\cf3 bool\cf0  qPutMsg(\cf5 QUEUE\cf0 & q, \cf3 const\cf0  \cf3 void\cf0  *msgPtr);\
+\
+\cf2 /* This function pops (remove and return) a message from a queue (queue's tail)\cf0 \
+\cf2 In other words, this function dequeues the message.\cf0 \
+\
+\cf2 q -- the (starting memory address of the) queue we want to get the message from\cf0 \
+\cf2 msgPtr -- the memory location to which the message should be copied to from the queue\cf0 \
+\
+\cf2 returns a boolean:\cf0 \
+\cf2 true -- if a message is popped from the queue and copied to the desired memory location\cf0 \
+\cf2 false -- if the memPtr or msgPtr is NULL or if the queue has elements at or below the\cf0 \
+\cf2 desired threshold\cf0 \
+\cf2 */\cf0 \
+\cf3 bool\cf0  qGetMsg(\cf5 QUEUE\cf0 & q, \cf3 void\cf0  *msgPtr);\
+\
+\cf2 /* This function frees the heap memory associated with a valid QUEUE, q, passed\cf0 \
+\cf2 by reference (input/output variable). The memory pointer is reset to 0 (NULL).\cf0 \
+\cf2 */\cf0 \
+\cf3 void\cf0  qFree(\cf5 QUEUE\cf0 & q);\
+\
+\cf3 #endif\cf0  \cf2 // QUEUE_H\cf0 \
+}

@@ -1,0 +1,28 @@
+# Comments look like this
+Image A 100 100 =
+# Image A (2 diagonal line segments)
+lineTo 100 100
+lineTo -100 100
+End Image A
+# ############################
+Image B 10 10 =
+# Image B (a square)
+lineTo 390 0
+lineTo 0 390
+lineTo -390 0
+lineTo 0 -390
+End Image B
+# ############################
+Image c 50 50 =
+# Image c (a triangle)
+lineTo 100 0
+lineTo 0 100
+lineTo 0 0
+End Image C
+# ############################
+translate A 20 30
+child pause 2
+child clearScreen
+child stop
+# child end below is last line in input file
+child end

@@ -1,0 +1,4 @@
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+line 85, 91 of functions.c
+line 129 of functions.c to handle invalid input lines inside an image def.

@@ -1,0 +1,208 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 Consolas;}
+{\colortbl;\red255\green255\blue255;\red0\green128\blue0;\red0\green0\blue255;\red111\green0\blue138;
+\red163\green21\blue21;\red43\green145\blue175;\red128\green128\blue128;\red47\green79\blue79;}
+\margl1440\margr1440\vieww25400\viewh13400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs19 \cf2 /* ECE 312 LEC A1\cf0 \
+\cf2 Assignment 1, Fall 2014\cf0 \
+\cf2 DO NOT EDIT/SUBMIT THIS FILE\cf0 \
+\cf2 */\cf0 \
+\cf3 #define\cf0  \cf4 _CRT_SECURE_NO_WARNINGS\cf0  \cf2 // Allow unsafe file operations (VC++)\cf0 \
+\cf3 #include\cf0  \cf5 <stdio.h>\cf0  \cf2 // Use standard input/output code\cf0 \
+\cf3 #include\cf0  \cf5 <ctype.h>\cf0  \cf2 // Use standard ASCII-related code\cf0 \
+\cf3 #include\cf0  \cf5 "Queue.h"\cf0  \cf2 // Use custom queue code\cf0 \
+\
+\cf6 QUEUE\cf0  qVideo; \cf2 // Global queue for producer-consumer cooperation\cf0 \
+\
+\cf2 /* This function simulates a producer task that models downloading of video\cf0 \
+\cf2 packets from the Internet. Packets are represented by alphabetic characters.\cf0 \
+\cf2 The function is given a file pointer, fin, for text input. It also has three\cf0 \
+\cf2 states. The initial state ends when two integers are read from the input file,\cf0 \
+\cf2 which are used to initialize the maximum and minimum sizes of a global queue.\cf0 \
+\cf2 During the main state that follows, characters are read in sequence from the\cf0 \
+\cf2 input. An asterisk means no packet was received although more are expected.\cf0 \
+\cf2 Valid packets (letters) are put into the queue. Any other inputted character\cf0 \
+\cf2 means downloading is complete. A wait state follows, during which invalid\cf0 \
+\cf2 packets (zeros) are put into the queue to signal the consumer to free the\cf0 \
+\cf2 queue. Thereafter, the producer returns to the initial state.\cf0 \
+\cf2 */\cf0 \
+\cf3 void\cf0  producer(\cf6 FILE\cf0  *\cf7 fin\cf0 ) \{\
+	\cf2 /* A static variable is used to represent task state. */\cf0 \
+	\cf3 static\cf0  \cf3 enum\cf0  \{ \cf8 INIT\cf0 , \cf8 MAIN\cf0 , \cf8 WAIT\cf0  \} state = \cf8 INIT\cf0 ;\
+	\cf3 int\cf0  packet; \cf2 // Used by two task states\cf0 \
+	\cf3 switch\cf0  (state) \{\
+	\cf3 case\cf0  \cf8 INIT\cf0 : \cf2 // Initial state (establishing connection)\cf0 \
+		\cf3 unsigned\cf0  \cf3 int\cf0  max, min; \cf2 // For queue parameters\cf0 \
+		\cf3 if\cf0  (fscanf(\cf7 fin\cf0 , \cf5 "%u %u "\cf0 , &max, &min) == 2) \{\
+			qInit(qVideo, \cf3 sizeof\cf0 (\cf3 int\cf0 ), max, min);\
+			state = \cf8 MAIN\cf0 ; \cf2 // Queue initialized\cf0 \
+		\}\
+		\cf3 break\cf0 ;\
+	\cf3 case\cf0  \cf8 MAIN\cf0 : \cf2 // Main state (downloading video packets)\cf0 \
+		packet = fgetc(\cf7 fin\cf0 ); \cf2 // N.B. Return type is int\cf0 \
+		\cf2 /* Success/failure of qPutMsg is ignored. */\cf0 \
+		\cf3 if\cf0  (isalpha(packet)) qPutMsg(qVideo, &packet);\
+		\cf3 else\cf0  \cf3 if\cf0  (packet != \cf5 '*'\cf0 ) state = \cf8 WAIT\cf0 ; \cf2 // End of video\cf0 \
+		\cf3 break\cf0 ;\
+	\cf3 case\cf0  \cf8 WAIT\cf0 : \cf2 // Wait state (waiting for freed queue)\cf0 \
+		packet = 0; \cf2 // Null packet signals consumer\cf0 \
+		\cf3 if\cf0  (qVideo.memPtr) qPutMsg(qVideo, &packet);\
+		\cf3 else\cf0  state = \cf8 INIT\cf0 ; \cf2 // Queue has been freed\cf0 \
+		\cf3 break\cf0 ;\
+	\}\
+\}\
+\
+\cf2 /* This function simulates a consumer task that models playback of downloaded\cf0 \
+\cf2 video packets. Packets, which consist of 4 frames, are represented by letters.\cf0 \
+\cf2 The function is given a file pointer, fout, for text output. It also has three\cf0 \
+\cf2 task states and two state variables, which store the last packet and the index\cf0 \
+\cf2 of the last frame played. The initial state ends when the producer suitably\cf0 \
+\cf2 initializes a global queue. Queue parameters are written to the file. During\cf0 \
+\cf2 the main state that follows, asterisks are written to the file when the task\cf0 \
+\cf2 gets no packets from the queue. The task frees the queue and returns to the\cf0 \
+\cf2 initial state if it gets an invalid packet. If it gets a valid packet, the\cf0 \
+\cf2 first frame is played (letter outputted) before switching to a loop state,\cf0 \
+\cf2 where other frames are played before returning to the main state.\cf0 \
+\cf2 */\cf0 \
+\cf3 void\cf0  consumer(\cf6 FILE\cf0  *\cf7 fout\cf0 ) \{\
+	\cf2 /* Static variables are used to represent state information. */\cf0 \
+	\cf3 static\cf0  \cf3 enum\cf0  \{ \cf8 INIT\cf0 , \cf8 MAIN\cf0 , \cf8 LOOP\cf0  \} state = \cf8 INIT\cf0 ; \cf2 // Task state\cf0 \
+	\cf3 static\cf0  \cf3 int\cf0  packet, frame; \cf2 // Used by two task states\cf0 \
+	\cf3 switch\cf0  (state) \{\
+	\cf3 case\cf0  \cf8 INIT\cf0 : \cf2 // Initial state (waiting for valid queue)\cf0 \
+		\cf3 if\cf0  (qVideo.memPtr) \{\
+			\cf2 /* Begin playback (echo queue parameters to output). */\cf0 \
+			\cf3 unsigned\cf0  \cf3 int\cf0  max = qVideo.bytesTotal / qVideo.bytesEach;\
+			fprintf(\cf7 fout\cf0 , \cf5 "%u\\t%u\\t"\cf0 , max, qVideo.thresh);\
+			state = \cf8 MAIN\cf0 ; \cf2 // Queue initialized\cf0 \
+		\}\
+		\cf3 break\cf0 ;\
+	\cf3 case\cf0  \cf8 MAIN\cf0 : \cf2 // Main state (waiting for video packet)\cf0 \
+		\cf3 if\cf0  (qGetMsg(qVideo, &packet)) \{\
+			\cf3 if\cf0  (isalpha(packet)) \{\
+				frame = 1; \cf2 // Initialize frame state\cf0 \
+				fputc(packet, \cf7 fout\cf0 ); \cf2 // Play first frame\cf0 \
+				state = \cf8 LOOP\cf0 ; \cf2 // Continue playback\cf0 \
+			\}\
+			\cf3 else\cf0  \{\
+				qFree(qVideo); \cf2 // Free the queue\cf0 \
+				fprintf(\cf7 fout\cf0 , \cf5 "\\n"\cf0 ); \cf2 // End playback\cf0 \
+				state = \cf8 INIT\cf0 ; \cf2 // Ready for next video\cf0 \
+			\}\
+		\}\
+		\cf3 else\cf0  fputc(\cf5 '*'\cf0 , \cf7 fout\cf0 ); \cf2 // Playback delayed\cf0 \
+		\cf3 break\cf0 ;\
+	\cf3 case\cf0  \cf8 LOOP\cf0 : \cf2 // Loop state (playing of video packet)\cf0 \
+		frame++; \cf2 // Increment frame state\cf0 \
+		fputc(packet, \cf7 fout\cf0 ); \cf2 // Play next frame\cf0 \
+		\cf3 if\cf0  (frame == 4) state = \cf8 MAIN\cf0 ; \cf2 // Wait for next packet\cf0 \
+		\cf3 break\cf0 ;\
+	\}\
+\}\
+\
+\cf2 /* This function takes an input file pointer, fin, and an output file pointer,\cf0 \
+\cf2 fout, that have been opened for text reading and writing, respectively. It\cf0 \
+\cf2 gives ownership of fin and fout to producer and consumer tasks, respectively,\cf0 \
+\cf2 which are repeatedly called in sequence to simulate cooperative multi-tasking.\cf0 \
+\cf2 After the producer task exhausts the input, this function terminates.\cf0 \
+\cf2 */\cf0 \
+\cf3 void\cf0  testSolution(\cf6 FILE\cf0  *\cf7 fin\cf0 , \cf6 FILE\cf0  *\cf7 fout\cf0 ) \{\
+	qInit(qVideo, 0, 0); \cf2 // Initialize global queue to invalid state\cf0 \
+	\cf3 while\cf0  (!feof(\cf7 fin\cf0 )) \{ \cf2 // Exit after input end-of-file is detected\cf0 \
+		producer(\cf7 fin\cf0 ); \cf2 // Simulate context switch to producer task\cf0 \
+		consumer(\cf7 fout\cf0 ); \cf2 // Simulate context switch to consumer task\cf0 \
+	\}\
+\}\
+\
+\cf2 /* This program simulates a video streaming application. It may be called with\cf0 \
+\cf2 zero, one, or two command-line arguments (extra arguments are ignored). First\cf0 \
+\cf2 and second arguments are the names of input and output files, respectively, if\cf0 \
+\cf2 given. Otherwise, standard input and output are used. Upon exit, the program\cf0 \
+\cf2 returns zero if there are no file open/close errors.\cf0 \
+\cf2 */\cf0 \
+\cf3 int\cf0  main(\cf3 int\cf0  \cf7 argc\cf0 , \cf3 char\cf0  *\cf7 argv\cf0 []) \{\
+	\cf2 /* Unless file(s) is/are opened, standard input/output is used by default. */\cf0 \
+	\cf6 FILE\cf0  *fin = \cf4 stdin\cf0 , *fout = \cf4 stdout\cf0 ;\
+	\cf2 /* Including the command, argc and argv provide all command-line strings. */\cf0 \
+	\cf3 if\cf0  (\cf7 argc\cf0  > 1) \{\
+		fin = fopen(\cf7 argv\cf0 [1], \cf5 "r"\cf0 ); \cf2 // Open text file for read\cf0 \
+		\cf3 if\cf0  (fin == 0) \cf3 return\cf0  1;\
+		\cf3 if\cf0  (\cf7 argc\cf0  > 2) \{\
+			fout = fopen(\cf7 argv\cf0 [2], \cf5 "w"\cf0 ); \cf2 // Open text file for write\cf0 \
+			\cf3 if\cf0  (fout == 0) \cf3 return\cf0  2;\
+		\}\
+	\}\
+	testSolution(fin, fout);\
+	\cf3 if\cf0  (\cf7 argc\cf0  > 1) \{\
+		\cf3 if\cf0  (fclose(fin)) \cf3 return\cf0  3;\
+		\cf3 if\cf0  (\cf7 argc\cf0  > 2) \{\
+			\cf3 if\cf0  (fclose(fout)) \cf3 return\cf0  4;\
+		\}\
+	\}\
+	\cf3 return\cf0  0;\
+\}\
+\
+\cf2 //Test Unit: main() function to test the qPutMsg() and qGetMsg() function\cf0 \
+\cf3 int\cf0  main2(\cf3 int\cf0  \cf7 argc\cf0 , \cf3 char\cf0  *\cf7 argv\cf0 []) \{\
+	printf(\cf5 "\\n===Tests for queues with values in it (initialized)===\\n"\cf0 );\
+	\cf6 QUEUE\cf0  q;\
+	qInit(q, 10, 4, 0);\
+	\cf2 //char c = 'a';\cf0 \
+	\cf2 //char c2 = 'b';\cf0 \
+	\cf3 char\cf0  char_array[5];\
+	char_array[0] = \cf5 'a'\cf0 ;\
+	char_array[1] = \cf5 'b'\cf0 ;\
+	char_array[2] = \cf5 'c'\cf0 ;\
+	char_array[3] = \cf5 'd'\cf0 ;\
+	char_array[4] = 0;\
+\
+	\cf3 char\cf0  char_array1[5];\
+	char_array1[4] = 0;\
+\
+	printf(\cf5 "Tesing qPutMsg() with an initialized queue\\n"\cf0 );\
+	\cf2 //testing qPutMsg()\cf0 \
+	\cf3 for\cf0  (\cf3 int\cf0  i = 0; i < 4; i++) \{\
+		printf(\cf5 "headPtr before the message insertion: %c\\n"\cf0 , *(q.headPtr));\
+		\cf3 bool\cf0  t = qPutMsg(q, &char_array[i]);\
+		printf(\cf5 "headPtr after the message insertion: %c\\n"\cf0 , *(q.headPtr-4));\
+		\cf2 //printf("pointer (memory location) where we placed the message: %d\\n", *(q.headPtr - 4));\cf0 \
+		printf(\cf5 "%d\\n"\cf0 , t);\
+	\}\
+\
+	printf(\cf5 "=================\\n"\cf0 );\
+	printf(\cf5 "Tesing qGetMsg() with an initialized queue\\n"\cf0 );\
+	\cf2 //testing qGetMsg()\cf0 \
+	\cf3 for\cf0  (\cf3 int\cf0  i = 0; i < 4; i++) \{\
+		printf(\cf5 "tailPtr before the message insertion: %d\\n"\cf0 , *(q.tailPtr));\
+		\cf3 bool\cf0  t = qGetMsg(q, &char_array1[i]);\
+		printf(\cf5 "tailPtr after the message insertion: %d\\n"\cf0 , *(q.tailPtr));\
+		\cf2 //printf("pointer (memory location) where from where we got the message: %d\\n", *(q.tailPtr - 4));\cf0 \
+		printf(\cf5 "%d\\n"\cf0 , t);\
+	\}\
+	printf(\cf5 "%s\\n\\n"\cf0 , char_array1);\
+\
+	printf(\cf5 "===Tests for queues with garbage (NULL) in it===\\n"\cf0 );\
+	\cf6 QUEUE\cf0  q1;\
+	q1.memPtr = \cf4 NULL\cf0 ;\
+\
+	printf(\cf5 "Tesing qPutMsg() with an uninitialized (NULL) queue\\n"\cf0 );\
+	\cf2 //testing qPutMsg()\cf0 \
+	\cf3 for\cf0  (\cf3 int\cf0  i = 0; i < 4; i++) \{\
+		\cf3 bool\cf0  t = qPutMsg(q1, &char_array[i]);\
+		printf(\cf5 "%d\\n"\cf0 , t);\
+	\}\
+\
+	printf(\cf5 "=================\\n"\cf0 );\
+	printf(\cf5 "Tesing qGetMsg() with an uninitialized (NULL) queue\\n"\cf0 );\
+	\cf2 //testing qGetMsg()\cf0 \
+	\cf3 for\cf0  (\cf3 int\cf0  i = 0; i < 4; i++) \{\
+		\cf3 bool\cf0  t = qGetMsg(q1, &char_array1[i]);\
+		printf(\cf5 "%d\\n"\cf0 , t);\
+	\}\
+\
+	\cf2 //printf("%d\\n", q1.memPtr == NULL);\cf0 \
+	getchar();\
+	\cf3 return\cf0  0;\
+\}}

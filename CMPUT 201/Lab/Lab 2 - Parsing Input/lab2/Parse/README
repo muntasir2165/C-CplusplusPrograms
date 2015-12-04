@@ -1,0 +1,27 @@
+name:               Stef Nychka
+ONE Card number:    9999999
+Unix id:            stef
+lecture section:    A1
+instructor's name:  Dr. Davood Rafiei
+lab section:        D01
+TA's name:          Kiana Hajebi
+
+Does the following (see parse.c comment for more details)
+
+  Read from input file (1st col.)             Convert to this (2nd col.)
+  ==============================              =========================
+  CLEARScreen                                 clearScreen
+  Pause n                                     pause n_r
+  END                                         end
+  DRAWSegment x1 y1 x2 y2                     drawSegment x1_r y1_r x2_r y2_r
+
+Compile by typing make.
+
+Ensure an executable sketchpad.jar in the current directory, and run by
+typing
+
+./parse ./input_file
+
+where input_file is a text file containg valid input for parse.c.
+
+I did not collaborate with anyone.

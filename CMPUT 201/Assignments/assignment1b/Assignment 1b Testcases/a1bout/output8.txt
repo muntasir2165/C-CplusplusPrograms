@@ -1,0 +1,8 @@
+./draw1b started on Wed Feb 18 23:07:28 MST 2015
+Input file: testcases/testcase8.txt
+#  Test Case 8 - tests use of doubles
+Print Image A =
+2500000000 2500000000
+2500000100 2500000100
+2500000000 2500000200
+End Image A

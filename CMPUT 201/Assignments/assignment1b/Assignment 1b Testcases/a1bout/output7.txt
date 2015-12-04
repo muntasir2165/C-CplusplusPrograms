@@ -1,0 +1,11 @@
+./draw1b started on Wed Feb 18 23:07:19 MST 2015
+Input file: testcases/testcase7.txt
+#  Test Case 7 - tests long image name and printing empty image
+Print Image ARelativelyLongImageNameForThisImage =
+100 100
+200 200
+100 300
+End Image ARelativelyLongImageNameForThisImage
+#  An empty image
+Print Image Empty =
+End Image Empty

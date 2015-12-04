@@ -1,0 +1,25 @@
+# Comments look like this
+Image A 100 100 =
+# Image A (2 diagonal line segments)
+lineTo 100 100
+lineTo -100 100
+End Image A
+# ############################
+Image B 10 10 =
+# Image B (a square)
+lineTo 390 0
+lineTo 0 390
+lineTo -390 0
+lineTo 0 -390
+End Image B
+# ############################
+print A
+print B
+draw A
+draw B
+translate B 10 10
+draw B
+child pause 60
+child clearScreen
+# child end below is last line in input file
+child end

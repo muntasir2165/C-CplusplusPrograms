@@ -1,0 +1,114 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 Consolas;}
+{\colortbl;\red255\green255\blue255;\red0\green128\blue0;\red0\green0\blue255;\red163\green21\blue21;
+\red43\green145\blue175;\red128\green128\blue128;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs19 \cf2 // ECE 312 LEC A1\cf0 \
+\cf2 // Assignment 3, Fall 2014\cf0 \
+\cf2 // Author: Mohammad Sirajee\cf0 \
+\cf2 // Student ID: 1255986\cf0 \
+\cf2 // Percent Original: 100%\cf0 \
+\cf2 // Other Contributors: The TAs helped a lot with respect to general hints and coding guidelines\cf0 \
+\
+\cf3 #include\cf0  \cf4 <thread>\cf0  \cf2 // For standard C++ multi-threading\cf0 \
+\cf3 #include\cf0  \cf4 <mutex>\cf0  \cf2 // For standard C++ mutual exclusion\cf0 \
+\
+\cf3 using\cf0  \cf3 namespace\cf0  std; \cf2 // Avoid std:: prefixes below\cf0 \
+\cf3 typedef\cf0  \cf3 unsigned\cf0  \cf3 int\cf0  \cf5 uint\cf0 ; \cf2 // Unsigned integer type\cf0 \
+\
+\cf2 // See Main.cpp for comment header. This is just a prototype.\cf0 \
+\cf3 void\cf0  randMatrix(\cf5 uint\cf0 , \cf5 uint\cf0 , \cf3 double\cf0  *);\
+\
+\cf2 // See Main.cpp for comment header. This is just a prototype.\cf0 \
+\cf3 void\cf0  dispMatrix(\cf3 const\cf0  \cf3 char\cf0  *, \cf5 uint\cf0 , \cf5 uint\cf0 , \cf3 const\cf0  \cf3 double\cf0  *);\
+\
+\cf2 /*\cf0 \
+\cf2 	Implements traditional sequential matrix vector-multiplication\cf0 \
+\cf2 	\cf0 \
+\cf2 	Inputs:\cf0 \
+\cf2 	rows - number of rows of the A matrix\cf0 \
+\cf2 	cols - number of columns of the A matrix and x vector\cf0 \
+\cf2 	A - pointer to the base address of the A matrix\cf0 \
+\cf2 	x - pointer to the base address of the x vector\cf0 \
+\cf2 	y - pointer to the base address of the resulting y vector\cf0 \
+\
+\cf2 	Output:\cf0 \
+\cf2 	None\cf0 \
+\cf2 	*/\cf0 \
+\cf3 void\cf0  seqMultiply(\cf5 uint\cf0  \cf6 rows\cf0 , \cf5 uint\cf0  \cf6 cols\cf0 , \cf3 const\cf0  \cf3 double\cf0  *\cf6 A\cf0 , \cf3 const\cf0  \cf3 double\cf0  *\cf6 x\cf0 , \cf3 double\cf0  *\cf6 y\cf0 ) \{\
+	\cf2 //dispMatrix("A", rows, cols, A);\cf0 \
+	\cf2 //dispMatrix("x", cols, 1, x);\cf0 \
+	\cf2 //randMatrix(rows, 1, y); // Initialize\cf0 \
+\
+	\cf3 const\cf0  \cf3 double\cf0  *A_iterator;\
+	A_iterator = \cf6 A\cf0 ;\cf2 //temporary pointer to the A matrix base address that will be incremented\cf0 \
+\
+	\cf3 for\cf0  (\cf3 int\cf0  i = 0; i < \cf6 rows\cf0 ; i++) \{\
+		\cf6 y\cf0 [i] = 0;\cf2 //initialize the accumulator to 0\cf0 \
+		\cf3 const\cf0  \cf3 double\cf0  *xiterator;\
+        xiterator = \cf6 x\cf0 ;\cf2 //temporary pointer to the x vector base address that will be incremented\cf0 \
+		\cf3 for\cf0  (\cf3 int\cf0  j = 0; j < \cf6 cols\cf0 ; j++) \{\
+			\cf6 y\cf0 [i] += (*A_iterator * *xiterator);\cf2 //multiply the corresponding value of matrix A with\cf0 \
+			\cf2 //that of the vector x\cf0 \
+			A_iterator += 1;\cf2 //iterate to the next memory address for the next value in the matrix A\cf0 \
+			xiterator += 1;\cf2 //iterate to the next memory address for the next value in the vector x\cf0 \
+        \}\
+    \}\
+\
+	\cf2 //dispMatrix("ySeq", rows, 1, y);\cf0 \
+\}\
+\
+\cf2 /*\cf0 \
+\cf2 	Implements concurrent matrix-vector multiplication\cf0 \
+\
+\cf2 	Inputs:\cf0 \
+\cf2 	rows - number of rows of the A matrix\cf0 \
+\cf2 	cols - number of columns of the A matrix and x vector\cf0 \
+\cf2 	A - pointer to the base address of the A matrix\cf0 \
+\cf2 	x - pointer to the base address of the x vector\cf0 \
+\cf2 	y - pointer to the base address of the resulting y vector\cf0 \
+\
+\cf2 	Output:\cf0 \
+\cf2 	None\cf0 \
+\cf2 */\cf0 \
+\cf3 void\cf0  conMultiply(\cf5 uint\cf0  \cf6 rows\cf0 , \cf5 uint\cf0  \cf6 cols\cf0 , \cf3 const\cf0  \cf3 double\cf0  *\cf6 A\cf0 , \cf3 const\cf0  \cf3 double\cf0  *\cf6 x\cf0 , \cf3 double\cf0  *\cf6 y\cf0 ) \{\
+	\cf3 const\cf0  \cf5 uint\cf0  THREADS = 4; \cf2 // Number of threads\cf0 \
+	\cf2 //randMatrix(rows, 1, y); // Initialize\cf0 \
+\
+    \cf2 //if the number of rows is less than the number of threads, conMultiply() should operate\cf0 \
+	\cf2 //sequentially\cf0 \
+	\cf3 if\cf0  (\cf6 rows\cf0  < THREADS) \{\
+		seqMultiply(\cf6 rows\cf0 , \cf6 cols\cf0 , \cf6 A\cf0 , \cf6 x\cf0 , \cf6 y\cf0 );\
+    \}\
+	\cf3 else\cf0  \{\
+		\cf3 int\cf0  m_prime = \cf6 rows\cf0 /THREADS;\cf2 //number of rows of matrix A to consider in each of the threads\cf0 \
+		\cf3 int\cf0  remaining_rows = \cf6 rows\cf0  - (THREADS * m_prime);\cf2 //number of remaining rows of matrix A that\cf0 \
+		\cf2 //need to be considered in the main thread of the program\cf0 \
+		\
+		\cf2 //run THREADs number of threads alongside the main thread to calculate matrix-vector\cf0 \
+		\cf2 //multiplication of A and x to get y\cf0 \
+		\cf5 thread\cf0  tasks[THREADS];\
+		\cf3 for\cf0  (\cf3 int\cf0  i = 0; i < THREADS; i++) \{\
+			tasks[i] = \cf5 thread\cf0 (seqMultiply, m_prime, \cf6 cols\cf0 , \cf6 A\cf0 , \cf6 x\cf0 , \cf6 y\cf0 );\
+\
+			\cf2 //increment A and y to point to the next block of memory containing elements of the A\cf0 \
+			\cf2 //matrix and y vector\cf0 \
+			\cf6 A\cf0  = \cf6 A\cf0  + (m_prime*\cf6 cols\cf0 );\
+			\cf6 y\cf0  = \cf6 y\cf0  + m_prime;\
+		\}\
+\
+		\cf2 //the following thread (main thread/program) will do the matrix-vector multiplication for\cf0 \
+		\cf2 //the remaining rows of A with x to get y\cf0 \
+		seqMultiply(remaining_rows, \cf6 cols\cf0 , \cf6 A\cf0 , \cf6 x\cf0 , \cf6 y\cf0 );\
+\
+		\cf2 //join the threads to the main thread/program\cf0 \
+		\cf3 for\cf0  (\cf3 int\cf0  i = 0; i < THREADS; i++) \{\
+			tasks[i].join();\
+		\}\
+    \}\
+\
+	\cf2 //dispMatrix("yCon", rows, 1, y);\cf0 \
+\}\
+}

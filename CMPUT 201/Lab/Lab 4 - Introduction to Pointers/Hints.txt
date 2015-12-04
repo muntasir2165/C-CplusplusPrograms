@@ -1,0 +1,8 @@
+1)
+	diff <(tac input1.txt) <(./part1)
+if the above line of code doesn’t return anything, then the outputs of the two things are the same. if the output is something that starts with “< xxx” that means xxx is present in the left file/thingy but not in the thingy on the right. similarly, if the output is like “> xxx”, then that means that xxx is present on the file/thingy on the right but not inside the one from the left
+
+2) 
+	valgrind ./part1
+The valgrind is a linux program that checks if we are accessing part of memory that we have no authorization to and/or if we have used some memory using malloc() but have not freed it later using free().
+please note that valgrind is a program analogous to MEMWATCH

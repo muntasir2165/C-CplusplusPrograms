@@ -1,0 +1,7 @@
+# Test Case 1 - tests comments and child commands
+# Comments look like this
+# ############################
+child pause 5
+child clearScreen
+# child end below is last line in input file
+child end

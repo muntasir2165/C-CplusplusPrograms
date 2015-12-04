@@ -1,0 +1,19 @@
+name:               Joe Programmer
+ONE Card number:    9999999
+Unix id:            joe
+lecture section:    A1
+instructor's name:  Davood Rafiei
+lab section:        D01
+TA's name:          Konrad Lindenbach
+
+Compile by typing make.
+
+Ensure an executable sketchpad.jar in the current directory, and run by
+typing
+
+./parse ./input_file shiftX shiftY
+
+where input_file is a text file containg valid input for parse.c, and 
+shiftX and shiftY are the shifts on the X and Y axes.
+
+I did not collaborate with anyone.

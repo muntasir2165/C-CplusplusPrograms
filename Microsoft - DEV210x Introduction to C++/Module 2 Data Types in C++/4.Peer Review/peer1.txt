@@ -1,0 +1,9 @@
+First Name, Street Address - wchar_t (so that the international, non-English characters could be used)
+
+Birth Date - int (assuming the birthdate would be in the form ddmmyyyy where dd represent day of birth, mm month of birth, yyyy year of birth. Short would be out of data range)
+
+Zip/Postal Code - wchar_t (most countries use numbers, but large number also use letters for postal code, where characters could be international)
+
+Bank Account Balance - double (to get greater accuracy then by using float)
+
+Months of the Year - enum (There are only 12 possible values for months of the year, and these values will never change)

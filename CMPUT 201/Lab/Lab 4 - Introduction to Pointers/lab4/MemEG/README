@@ -1,0 +1,19 @@
+Has one file (memEG.c) and a Makefile (and this README) which help
+illustrate how to use MEMWATCH.
+
+Note
+  - memwatch.c and memwatch.h need to be downloaded into the same
+    directory
+  - in memEG.c, uncomment inclusion of memwatch.h
+  - in Makefile uncomment text to compile and link MEMWATCH 
+  - in Makefile, uncomment -D MEMWATCH flags.
+
+Once done, type
+
+  make
+
+to compile (a warning about an unused variable is expected) and
+
+  ./memEG
+
+to run.

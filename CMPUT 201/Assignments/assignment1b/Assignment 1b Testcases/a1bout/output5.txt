@@ -1,0 +1,18 @@
+./draw1b started on Wed Feb 18 23:06:20 MST 2015
+Input file: testcases/testcase5.txt
+#  Test Case 5 - tests redefining and printing a single image
+#  Image A (2 diagonal line segments)
+Print Image A =
+100 100
+200 200
+100 300
+End Image A
+#  redefinition of image A
+Print Image A =
+200 200
+250 100
+300 200
+190 134
+310 134
+200 200
+End Image A

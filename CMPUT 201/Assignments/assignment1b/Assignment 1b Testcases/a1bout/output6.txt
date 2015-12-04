@@ -1,0 +1,32 @@
+./draw1b started on Wed Feb 18 23:06:50 MST 2015
+Input file: testcases/testcase6.txt
+#  Test Case 6 - tests redefining and drawing multiple images
+#  Image A (2 diagonal line segments)
+#  Image B (2 diagonal line segments)
+Print Image A =
+100 100
+200 200
+100 300
+End Image A
+Print Image B =
+200 200
+300 300
+200 400
+End Image B
+#  redefinition of image A
+Print Image A =
+250 250
+300 150
+350 250
+240 184
+360 184
+250 250
+End Image A
+Print Image B =
+100 100
+150 0
+200 100
+90 34
+210 34
+100 100
+End Image B

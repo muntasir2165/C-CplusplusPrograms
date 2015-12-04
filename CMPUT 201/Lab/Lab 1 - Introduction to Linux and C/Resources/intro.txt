@@ -1,0 +1,32 @@
+Introduction
+  - Log in 
+    if you cannot login, visit help desk (csc 1-32) with your student id.
+  - Setting up Xfce (if not already set up)
+    . type copyrcfiles at the command prompt of a terminal
+    . may need to backup .emacs, .xinitrc, ...
+  - Linux mini tutorial ... follow along with your TA
+    ... open a terminal
+    make a directory with
+      mkdir c201
+    go into that directory with cd , and use tab completion (
+      cd c201
+      mkdir lab1
+      cd lab1
+    create a new file and edit it:
+      emacs hello.c &
+    copy hello.c from the board into Emacs/Vim and save
+
+  - Compile, run, then fix code:
+    compile with gcc
+    fix the mistake, save, compile then run, then exit
+    look mainly at the first compilation error
+      ls
+      man ls 
+      ls -l
+      cd ..
+  - Do the lab exercise
+    . Consult the Linux and Emacs/Vim tutorials while doing the lab
+      exercise (if needed)and 
+    . demo your lab exercise to your TA
+  - Do the linux and emacs or vim tutorials on your own
+

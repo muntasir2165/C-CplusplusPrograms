@@ -1,0 +1,11 @@
+./draw1b started on Wed Feb 18 23:05:33 MST 2015
+Input file: testcases/testcase2.txt
+#  Test Case 2 - tests creating and printing a single image
+Print Image A =
+200 200
+250 100
+300 200
+190 134
+310 134
+200 200
+End Image A

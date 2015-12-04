@@ -1,0 +1,37 @@
+name:               Mohammad Sirajee
+ONE Card number:    1255986
+Unix id:            sirajee
+lecture section:    EB1
+instructor's name:  Jacqueline Smith
+lab section:        EH02
+TA's name:          Nicolas Barriga, Shida He,
+                    and Rong Feng
+
+This program does the following:
+-Print a start-up message to stdout stating the
+name of the executable, the time the program is
+executed and the name of the input file the program
+is run on 
+-Read an input file line by line
+-Check if the first string/token/word in each
+line matches up with one of the eight keywords in
+the "little" language for graphics
+-As soon as the program finds a match, it 
+increments the count for the corresponding keyword 
+by one
+-Repeat the above three steps until the program
+reaches the end of the file
+-Print to stdout the statistics of count for each
+of the eight keywords in the input file
+
+(see draw1a.c comments for more detail)
+
+Compile by typing make.
+
+Ensure an input file inputfile.1 is presnet in the current directory, and run by typing
+
+./draw1a ./inputfile.1
+
+where inputfile.1 is a text file containg valid input for draw1a.c.
+
+I did not collaborate with anyone.

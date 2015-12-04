@@ -1,0 +1,17 @@
+//i=base value, n=exponent value
+int main()
+{
+int i,j,n;
+std::cout<<"enter base value"<<endl;
+cin>>i;
+std::cout<<"enter exponent value"<<endl;
+cin>>n;
+int a=1;
+for (j=1;j<=n;j++)
+{
+a=a*i;
+}
+std::cout<<"a"<<endl;
+return 0;
+}
+

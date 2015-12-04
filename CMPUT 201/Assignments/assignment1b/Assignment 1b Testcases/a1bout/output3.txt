@@ -1,0 +1,3 @@
+./draw1b started on Wed Feb 18 23:05:45 MST 2015
+Input file: testcases/testcase3.txt
+#  Test Case 3 - tests creating and drawing a single image

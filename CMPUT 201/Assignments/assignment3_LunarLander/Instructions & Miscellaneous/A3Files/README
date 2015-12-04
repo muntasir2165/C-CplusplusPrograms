@@ -1,0 +1,9 @@
+Useful files for assignment 3:
+
+lander            Sample executable (run chmod +x to make it executable)
+landscape.txt     Sample landscape file for the -f option
+Sketchpad.jar     Current version of Sketchpad
+timer.c           Sample code for using timer and blocking signals
+test_curses.c     Sample code showing how to use the curses library
+java_lander.tar.gz  A lunar lander in Java (no warranties)
+perl_lander.tar.gz A lunar lander in Perl (no warranties)

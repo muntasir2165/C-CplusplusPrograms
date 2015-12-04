@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>c - compile errors using signal.h in Linux - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="compile errors using signal.h in Linux">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I&#39;m writing a shell program that must handle signals. My relevant signal handling related code is as follows:
+
+#include &amp;lt;signal.h&amp;gt;
+...
+#include &amp;lt;sys/types.h&amp;gt;
+...
+void installSigactions(...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux">
+    <link rel="canonical" href="./c - compile errors using signal.h in Linux - Stack Overflow_files/c - compile errors using signal.h in Linux - Stack Overflow.html">
+
+    
+    
+    <script type="text/javascript" async="" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/ados"></script><script async="" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/quant.js"></script><script async="" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/beacon.js"></script><script async="" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/ados.js"></script><script src="./c - compile errors using signal.h in Linux - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./c - compile errors using signal.h in Linux - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./c - compile errors using signal.h in Linux - Stack Overflow_files/all.css">
+    
+    <meta name="twitter:app:country" content="US">
+    <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+    <meta name="twitter:app:id:iphone" content="871299723">
+    <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux">
+    <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+    <meta name="twitter:app:id:ipad" content="871299723">
+    <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux">
+    <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+    <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux">
+    <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+    <script>
+        
+        StackExchange.ready(function () {
+                
+                StackExchange.using("snippets", function () {
+                    StackExchange.snippets.initSnippetRenderer();
+                });
+                
+
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:8846047});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '8846047');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+        });
+    </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1428610769,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"d54e1a0bdf982b8a43bfdce442df88f5","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"794812aa8874","js/moderator.en.js":"3b7b04964973","js/full-anon.en.js":"845f27605d11","js/full.en.js":"e24e7afddc17","js/wmd.en.js":"e3e9719df9da","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"cace3074c703","js/help.en.js":"1ad0e1555080","js/tageditor.en.js":"1b42ad383efd","js/tageditornew.en.js":"49b03b60bf8b","js/inline-tag-editing.en.js":"0f5c6409438a","js/revisions.en.js":"989c474e85a9","js/review.en.js":"429928824613","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"f25019da602c","js/explore-qlist.en.js":"e7a80905fa22","js/events.en.js":"80f349f8b9fd","js/keyboard-shortcuts.en.js":"62cc5c82b317","js/external-editor.en.js":"fccec2b4bb15","js/external-editor.en.js":"fccec2b4bb15","js/snippet-javascript.en.js":"49fc6920793f","js/snippet-javascript-codemirror.en.js":"9b2dc9f9e43d"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/full-anon.en.js"></script><script async="" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/prettify-full.en.js"></script><script type="text/javascript" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"><link type="text/css" rel="stylesheet" href="./c - compile errors using signal.h in Linux - Stack Overflow_files/jobs.min.css"></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8846047%2fcompile-errors-using-signal-h-in-linux" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8846047%2fcompile-errors-using-signal-h-in-linux" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 141 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8846047%2fcompile-errors-using-signal-h-in-linux" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8846047%2fcompile-errors-using-signal-h-in-linux" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+			<h1 itemprop="name"><a href="./c - compile errors using signal.h in Linux - Stack Overflow_files/c - compile errors using signal.h in Linux - Stack Overflow.html" class="question-hyperlink">compile errors using signal.h in Linux [duplicate]</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="8846047" id="question">
+
+    <script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1115924020",4).setZone(43) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1115924020">
+            <iframe id="ados_frame_adzerk1115924020_502721" frameborder="0" scrolling="no" height="90" width="728"></iframe><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/i.gif"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="8846047">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">10</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+    
+    <a class="star-off" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b></b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<div class="question-status question-originals-of-duplicate">
+    <p>This question already has an answer here:</p>
+    <ul>
+        <li>
+            <a href="http://stackoverflow.com/questions/6491019/struct-sigaction-incomplete-error" dir="ltr">struct sigaction incomplete error</a>
+                <span class="question-originals-answer-count">
+                    1 answer
+                </span>
+        </li>
+    </ul>
+</div>
+        <p>I'm writing a shell program that must handle signals. My relevant signal handling related code is as follows:</p>
+
+<pre class="lang-c prettyprint prettyprinted"><code><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;signal.h&gt;</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;sys/types.h&gt;</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="kwd">void</span><span class="pln"> installSigactions</span><span class="pun">(</span><span class="pln"> </span><span class="typ">int</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">struct</span><span class="pln"> sigaction</span><span class="pun">*</span><span class="pln"> </span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">void</span><span class="pln"> handler_function</span><span class="pun">(</span><span class="pln"> </span><span class="typ">int</span><span class="pln"> signal_id </span><span class="pun">);</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="com">/*define signal table*/</span><span class="pln">
+</span><span class="kwd">struct</span><span class="pln"> sigaction signal_action</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">/*insert handler function*/</span><span class="pln">
+signal_action</span><span class="pun">.</span><span class="pln">sa_handler </span><span class="pun">=</span><span class="pln"> handler_function</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">/*init the flags field*/</span><span class="pln">
+ signal_action</span><span class="pun">.</span><span class="pln">sa_flags </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">/*are no masked interrupts*/</span><span class="pln">
+sigemptyset</span><span class="pun">(</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">signal_action</span><span class="pun">.</span><span class="pln">sa_mask </span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">/*install the signal_actions*/</span><span class="pln">
+sigaction</span><span class="pun">(</span><span class="pln"> SIGINT</span><span class="pun">,</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">signal_action</span><span class="pun">,</span><span class="pln"> NULL </span><span class="pun">);</span></code></pre>
+
+<p>Compiling gives me the following warnings and errors:</p>
+
+<pre class="lang-c prettyprint prettyprinted"><code><span class="pln">gcc </span><span class="pun">-</span><span class="typ">Wall</span><span class="pln"> </span><span class="pun">-</span><span class="pln">ggdb </span><span class="pun">-</span><span class="pln">ansi </span><span class="pun">-</span><span class="kwd">static</span><span class="pln"> </span><span class="pun">-</span><span class="pln">pedantic </span><span class="pun">-</span><span class="pln">o os1shell2 os1shell2</span><span class="pun">.</span><span class="pln">c
+os1shell2</span><span class="pun">.</span><span class="pln">c</span><span class="pun">:</span><span class="lit">35</span><span class="pun">:</span><span class="pln"> warning</span><span class="pun">:</span><span class="pln"> </span><span class="str">'struct sigaction'</span><span class="pln"> declared inside parameter </span><span class="typ">list</span><span class="pln">
+os1shell2</span><span class="pun">.</span><span class="pln">c</span><span class="pun">:</span><span class="lit">35</span><span class="pun">:</span><span class="pln"> warning</span><span class="pun">:</span><span class="pln"> its scope is only </span><span class="kwd">this</span><span class="pln"> definition or declaration</span><span class="pun">,</span><span class="pln"> 
+which is probably not what you want
+os1shell2</span><span class="pun">.</span><span class="pln">c</span><span class="pun">:</span><span class="pln"> </span><span class="typ">In</span><span class="pln"> function </span><span class="str">'main'</span><span class="pun">:</span><span class="pln">
+os1shell2</span><span class="pun">.</span><span class="pln">c</span><span class="pun">:</span><span class="lit">66</span><span class="pun">:</span><span class="pln"> error</span><span class="pun">:</span><span class="pln"> storage size of </span><span class="str">'signal_action'</span><span class="pln"> isn</span><span class="str">'</span><span class="pln">t known
+os1shell2</span><span class="pun">.</span><span class="pln">c</span><span class="pun">:</span><span class="lit">75</span><span class="pun">:</span><span class="pln"> warning</span><span class="pun">:</span><span class="pln"> implicit declaration of function </span><span class="str">'sigemptyset'</span><span class="pln">
+os1shell2</span><span class="pun">.</span><span class="pln">c</span><span class="pun">:</span><span class="lit">78</span><span class="pun">:</span><span class="pln"> warning</span><span class="pun">:</span><span class="pln"> implicit declaration of function </span><span class="str">'sigaction'</span></code></pre>
+
+<p>Can anyone tell me why I'm getting these warnings and errors?</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/c" class="post-tag js-gps-track" title="show questions tagged &#39;c&#39;" rel="tag">c</a> <a href="http://stackoverflow.com/questions/tagged/linux" class="post-tag js-gps-track" title="show questions tagged &#39;linux&#39;" rel="tag">linux</a> <a href="http://stackoverflow.com/questions/tagged/signals" class="post-tag js-gps-track" title="show questions tagged &#39;signals&#39;" rel="tag">signals</a> <a href="http://stackoverflow.com/questions/tagged/system-calls" class="post-tag js-gps-track" title="show questions tagged &#39;system-calls&#39;" rel="tag">system-calls</a> <a href="http://stackoverflow.com/questions/tagged/signal-handling" class="post-tag js-gps-track" title="show questions tagged &#39;signal-handling&#39;" rel="tag">signal-handling</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/8846047" title="short permalink to this question" class="short-link" id="link-post-8846047">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/8846047/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/8846047/revisions" title="show all edits to this post">edited <span title="2012-08-26 00:32:32Z" class="relativetime">Aug 26 '12 at 0:32</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2012-01-13 04:45:04Z" class="relativetime">Jan 13 '12 at 4:45</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1110675/ataraxia"><div class="gravatar-wrapper-32"><img src="./c - compile errors using signal.h in Linux - Stack Overflow_files/dx0YU.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1110675/ataraxia">Ataraxia</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">327</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="28 bronze badges"><span class="badge3"></span><span class="badgecount">28</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    <tr>
+            <td class="special-status" colspan="2">
+                <div class="question-status">
+        <h2>                    <b>marked</b> as duplicate by <a href="http://stackoverflow.com/users/608639/jww">jww</a>, <a href="http://stackoverflow.com/users/1009479/yu-hao">Yu Hao</a><span class="voter-history" title="Users with the [c] gold badge can single-handedly mark [c] questions as duplicates"><span class="badge1"></span></span> <span dir="ltr"><span title="2014-11-28 11:50:28Z" class="relativetime">Nov 28 '14 at 11:50</span></span>
+</h2>
+        <p>This question has been asked before and already has an answer. If those answers do not fully address your question, please <a href="http://stackoverflow.com/questions/ask">ask a new question</a>.</p>
+    </div>
+            </td>
+        </tr>
+    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-8846047" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-8846047" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								2 Answers
+                                <span style="display:none;" itemprop="answerCount">2</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="8846122"></a>
+<div id="answer-8846122" class="answer accepted-answer" data-answerid="8846122" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="8846122">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">9</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>It will work if you remove <code>-ansi</code> from your compile line. I suspect the problem is that the posix parts of the signal library aren't included when you specify <code>-ansi</code>.</p>
+
+<p>If you really don't want to disable -ansi, you can also add <code>-D_POSIX_C_SOURCE</code> to the compiler options.</p>
+
+<p><a href="http://www.network-theory.co.uk/docs/gccintro/gccintro_27.html">Here is a short discussion of ANSI and the gcc feature test macros</a>.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/8846122" title="short permalink to this answer" class="short-link" id="link-post-8846122">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/8846122/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/8846122/revisions" title="show all edits to this post">edited <span title="2012-01-13 05:02:12Z" class="relativetime">Jan 13 '12 at 5:02</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-01-13 04:55:54Z" class="relativetime">Jan 13 '12 at 4:55</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/790070/timothy-jones"><div class="gravatar-wrapper-32"><img src="./c - compile errors using signal.h in Linux - Stack Overflow_files/8SPP4.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/790070/timothy-jones">Timothy Jones</a><br>
+        <span class="reputation-score" title="reputation score 11360" dir="ltr">11.4k</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="27 silver badges"><span class="badge2"></span><span class="badgecount">27</span></span><span title="53 bronze badges"><span class="badge3"></span><span class="badgecount">53</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-8846122" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-11048468" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">removing <code>-ansi</code> leaves me with: <code>/tmp/ccl4HmT7.o: In function main':</code> <code>/home/stu1/s11/gaw9451/Courses/OS_3/os1shell2.c:68: undefined</code> <code>reference to handler_function'</code> <code>collect2: ld returned 1 exit status</code>  Adding the <code>-D_POSIX_C_SOURCE</code> does the same. Any ideas on this??</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1110675/ataraxia" title="327 reputation" class="comment-user owner">Ataraxia</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#comment11048468_8846122"><span title="2012-01-13 05:08:16Z" class="relativetime-clean">Jan 13 '12 at 5:08</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 2 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-11048499" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Do you have <code>handler_function</code> defined anywhere? It's declared in your question, but there's no code for it. I had to add <code>void handler_function( int signal_id ) {}</code>, and then your code compiled fine.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/790070/timothy-jones" title="11360 reputation" class="comment-user">Timothy Jones</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#comment11048499_8846122"><span title="2012-01-13 05:11:35Z" class="relativetime-clean">Jan 13 '12 at 5:11</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-8846122" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk2117649319",4).setZone(44) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk2117649319"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjciI6NzI0Mjk4LCJkaSI6ImQ4OGJjNzBkOGRiZDQ1NTI4YzIwODIxMjBlNDM4NDk2IiwiZG0iOjEsImZjIjo3NTQwOTIsImZsIjo0MTAxODMsImlwIjoiMTQyLjI0NC41LjgzIiwia3ciOiJjLGxpbnV4LHNpZ25hbHMsc3lzdGVtLWNhbGxzLHNpZ25hbC1oYW5kbGluZyIsIm53IjoyMiwicGMiOjAsInByIjoxNTY4LCJydCI6MSwic3QiOjgyNzcsInVrIjoidWUxLWUwZWZmYmFjZTIwYzRmM2U4NjkyNjU4MmZiOWMyYTMxIiwiem4iOjQ0LCJ0cyI6MTQyODYxMTIzMTA1MiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMjExNzY0OTMxOSIsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vY3YvZ2V0LW9uZT91dG1fc291cmNlPXN0YWNrb3ZlcmZsb3cuY29tJnV0bV9tZWRpdW09YWQmdXRtX2NhbXBhaWduPWNhbmRpZGF0ZXMtYWRkLWN2JnV0bV9jb250ZW50PWxiLWNhcmVlcnMtZ2l0cHVzaCJ9&s=bCQt5xRnh3LCBwQBYyLZLIthfh4" rel="nofollow" target="_blank" title=""><img src="./c - compile errors using signal.h in Linux - Stack Overflow_files/8bb266973e664d288a7f217d15d31d41.png" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/i(1).gif"></div>
+  
+<a name="8846056"></a>
+<div id="answer-8846056" class="answer" data-answerid="8846056" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="8846056">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Please try moving "sys/types.h" <em>before</em> "signal.h".</p>
+
+<p>If that doesn't work, try adding this:</p>
+
+<pre class="lang-c prettyprint prettyprinted"><code><span class="com">#include</span><span class="pln"> </span><span class="str">&lt;bits/sigaction.h&gt;</span></code></pre>
+
+<p>If it <em>still</em> doesn't work, please specify:</p>
+
+<p>1) Your OS and version</p>
+
+<p>2) Your gcc version</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/8846056" title="short permalink to this answer" class="short-link" id="link-post-8846056">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/8846056/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/8846056/revisions" title="show all edits to this post">edited <span title="2012-01-13 04:51:54Z" class="relativetime">Jan 13 '12 at 4:51</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-01-13 04:46:41Z" class="relativetime">Jan 13 '12 at 4:46</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/421195/paulsm4"><div class="gravatar-wrapper-32"><img src="./c - compile errors using signal.h in Linux - Stack Overflow_files/9a9793fdeb3b94e185c8c99c0238372f" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/421195/paulsm4">paulsm4</a><br>
+        <span class="reputation-score" title="reputation score 42611" dir="ltr">42.6k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="42 silver badges"><span class="badge2"></span><span class="badgecount">42</span></span><span title="76 bronze badges"><span class="badge3"></span><span class="badgecount">76</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-8846056" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-11048318" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">didn't help...but that was a good suggestion</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1110675/ataraxia" title="327 reputation" class="comment-user owner">Ataraxia</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#comment11048318_8846056"><span title="2012-01-13 04:49:51Z" class="relativetime-clean">Jan 13 '12 at 4:49</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-11048429" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Never include <code>&lt;sigaction.h&gt;</code> directly. There is even en <code>#error</code> at the top of the file that wans you against doing this.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/675129/celada" title="12631 reputation" class="comment-user">Celada</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#comment11048429_8846056"><span title="2012-01-13 05:05:00Z" class="relativetime-clean">Jan 13 '12 at 5:05</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-11048440" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">'uname -a' 'Linux massachusetts 2.6.32-37-generic #81-Ubuntu SMP Fri Dec 2 20:35:14 UTC 2011 i686 GNU/Linux'  'gcc --version' 'gcc (Ubuntu 4.4.3-4ubuntu5) 4.4.3'</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1110675/ataraxia" title="327 reputation" class="comment-user owner">Ataraxia</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#comment11048440_8846056"><span title="2012-01-13 05:05:43Z" class="relativetime-clean">Jan 13 '12 at 5:05</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-8846056" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+				
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/c" class="post-tag" title="show questions tagged &#39;c&#39;" rel="tag">c</a> <a href="http://stackoverflow.com/questions/tagged/linux" class="post-tag" title="show questions tagged &#39;linux&#39;" rel="tag">linux</a> <a href="http://stackoverflow.com/questions/tagged/signals" class="post-tag" title="show questions tagged &#39;signals&#39;" rel="tag">signals</a> <a href="http://stackoverflow.com/questions/tagged/system-calls" class="post-tag" title="show questions tagged &#39;system-calls&#39;" rel="tag">system-calls</a> <a href="http://stackoverflow.com/questions/tagged/signal-handling" class="post-tag" title="show questions tagged &#39;signal-handling&#39;" rel="tag">signal-handling</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2012-01-13 04:45:04Z"><b>3 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>4376 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux?lastactivity" class="lastactivity-link" title="2012-08-26 00:32:32Z">2 years ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+			<div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Upcoming Events
+                </div>
+                <hr>
+    <div class="spacer bulletin-item-important">
+        
+    <div class="bulletin-item-type"><a href="http://stackoverflow.com/election?cb=1" class="question-hyperlink"><div class="favicon favicon-stackoverflow" title="Stack Overflow"></div></a></div>
+    <div class="bulletin-item-content">
+        <a href="http://stackoverflow.com/election?cb=1" class="question-hyperlink">2015 Community Moderator Election</a>
+        <div>ends <span title="2015-04-21 20:00:00Z">Apr 21</span></div>
+    </div>
+    <br class="cbt">
+</div>
+                <div class="bulletin-title">
+                    Blog
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="http://blog.stackoverflow.com/2015/04/stack-overflow-developer-survey-2015-the-results/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackoverflow" title="Stack Overflow"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="http://blog.stackoverflow.com/2015/04/stack-overflow-developer-survey-2015-the-results/?cb=1" class="question-hyperlink">Stack Overflow Developer Survey 2015: The Results</a>
+                </div>
+                <br class="cbt">
+            </div>
+    </div>
+</div>			
+			<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1863472291",[17,2221]).setZone(45) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1863472291"><div id="careersadsdoublehigh" style="display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/i(2).gif"></div>  
+        <div id="hireme" class="orange looking tagged"><a href="http://careers.stackoverflow.com/jobs?a=33sHe" target="_blank" data-la="33sHe" data-hf="h" class="top"> <span>Looking for a job?</span></a><ul class="jobs"><li><a data-cid="169668" data-la="rY6VcjQaSFH" href="http://careers.stackoverflow.com/jobs/83399/autonomy-engineer-multi-robot-systems-clearpath-robotics" target="_blank" title="Autonomy Engineer - Multi Robot Systems at Clearpath Robotics. Click to learn more.">Autonomy Engineer - Multi Robot Systems<br><div class="company">Clearpath Robotics</div><div class="location" title="Kitchener, ON, Canada">Kitchener, ON, Canada</div><span class="post-tag">c++</span><span class="post-tag">python</span></a></li><li><a data-cid="159000" data-la="oknOMYd3SAW" href="http://careers.stackoverflow.com/jobs/72543/senior-software-developer-java-adacado" target="_blank" title="Senior Software Developer (Java) at adacado. Click to learn more.">Senior Software Developer (Java)<br><div class="company">adacado</div><div class="location" title="Vancouver, BC, Canada / remote">Vancouver, BC, Canada / remote</div><span class="post-tag">java</span><span class="post-tag">distributed-computing</span></a></li><li><a data-cid="169969" data-la="s4CqBAk9j47" href="http://careers.stackoverflow.com/jobs/83712/senior-programmer-analyst-and-programmer-analyst-overwaitea-food-group" target="_blank" title="Senior Programmer Analyst and Programmer Analyst at Overwaitea Food Group. Click to learn more.">Senior Programmer Analyst and Programmer Analyst<br><div class="company">Overwaitea Food Group</div><div class="location" title="Langley, BC, Canada">Langley, BC, Canada</div><span class="post-tag">java</span><span class="post-tag">eclipse</span></a></li><li><a data-cid="151209" data-la="lI5W9OTaEpS" href="http://careers.stackoverflow.com/jobs/64738/sr-developer-univeris-corporation" target="_blank" title="Sr Developer at Univeris Corporation. Click to learn more.">Sr Developer<br><div class="company">Univeris</div><div class="location" title="Toronto, ON, Canada">Toronto, ON, Canada</div><span class="post-tag">java</span><span class="post-tag">html</span></a></li></ul><img class="impression" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/i" style="display:none;"><img class="impression" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/rY6VcjQaSFH-oknOMYd3SAW-s4CqBAk9j47-lI5W9OTaEpS-33sHe" style="display:none;"></div>
+			<div class="module" id="chat-feature">
+    
+
+    
+<h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="128 users active in 51 rooms the last 60 minutes">128 People Chatting</a></h4>
+
+<div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="PHP"><a href="http://chat.stackoverflow.com/rooms/11">PHP</a></span></h3><span title="2015-04-09 20:02:55Z" class="ad502-last-message">24 mins ago - <a href="http://chat.stackoverflow.com/users/851498">Florian Margaine</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/168868"><img height="23" width="23" title="Charles: 24 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/b6116ac3c4b5835c6745570ea73a85c1"></a><a href="http://chat.stackoverflow.com/users/727208"><img height="23" width="23" title="tereško: 25 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/40de750233b3ce8268f235ba0b6a489b"></a><a href="http://chat.stackoverflow.com/users/2153758"><img height="23" width="23" title="bwoebi: 27 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/3659fff22e890aaa5d7b03e799f9047f"></a><a href="http://chat.stackoverflow.com/users/338665"><img height="23" width="23" title="ircmaxell: 27 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/a32a990c257433d3252980e059341546"></a><a href="http://chat.stackoverflow.com/users/385378"><img height="23" width="23" title="NikiC: 29 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/b4ec98df44deb80b1576283152670358"></a><a href="http://chat.stackoverflow.com/users/778719"><img height="23" width="23" title="Danack: 29 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/01t5l.jpg"></a><a href="http://chat.stackoverflow.com/users/380064"><img height="23" width="23" title="beberlei: 33 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/5698eec59f95a5754f416f61ca2b3e74"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="Lounge&lt;C++&gt;"><a href="http://chat.stackoverflow.com/rooms/10">Lounge&lt;C++&gt;</a></span></h3><span title="2015-04-09 20:02:55Z" class="ad502-last-message">24 mins ago - <a href="http://chat.stackoverflow.com/users/1804599">райтфолд</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/1932150"><img height="23" width="23" title="Andy Prowl: 24 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/bgNyH.jpg"></a><a href="http://chat.stackoverflow.com/users/1804599"><img height="23" width="23" title="райтфолд: 24 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/ou7kb.jpg"></a><a href="http://chat.stackoverflow.com/users/560648"><img height="23" width="23" title="Lightning Racis in Obrit: 25 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/lAPmT.jpg"></a><a href="http://chat.stackoverflow.com/users/493122"><img height="23" width="23" title="Jefffrey: 26 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/8b7b64f33f32fe4fe713486feff4fda6"></a><a href="http://chat.stackoverflow.com/users/1527217"><img height="23" width="23" title="khajvah: 34 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/090621e17b3ad752124c4d0290f768d7"></a><a href="http://chat.stackoverflow.com/users/341065"><img height="23" width="23" title="wilx: 41 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/8e57fe4b0f7381288a8e1e4c6cd77a8e"></a><a href="http://chat.stackoverflow.com/users/46642"><img height="23" width="23" title="R. Martinho Fernandes: 54 mins ago" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/f64914b68ff9076e46156c07c96e890f"></a></div></div></div>
+<script>
+// <!--
+    StackExchange.ready(
+    function () {
+        var options = {
+            chatUrl: 'http://chat.stackoverflow.com',
+            reloadUrl: '/api/recent-chat',
+            preloadData: {"activeUsers":128,"activeRooms":51,"rooms":[{"name":"PHP","id":11,"lastPost":1428609775,"posts":1883383,"users":[{"name":"Charles","id":168868,"emailhash":"b6116ac3c4b5835c6745570ea73a85c1","lastPost":1428609744},{"name":"tereško","id":727208,"emailhash":"40de750233b3ce8268f235ba0b6a489b","lastPost":1428609705},{"name":"bwoebi","id":2153758,"emailhash":"3659fff22e890aaa5d7b03e799f9047f","lastPost":1428609591},{"name":"ircmaxell","id":338665,"emailhash":"a32a990c257433d3252980e059341546","lastPost":1428609569},{"name":"NikiC","id":385378,"emailhash":"b4ec98df44deb80b1576283152670358","lastPost":1428609443},{"name":"Danack","id":778719,"emailhash":"!http://i.stack.imgur.com/01t5l.jpg?s=128\u0026g=1","lastPost":1428609433},{"name":"beberlei","id":380064,"emailhash":"5698eec59f95a5754f416f61ca2b3e74","lastPost":1428609226}],"messages":[{"date":1428609775,"user":"Florian Margaine","userid":851498}],"singleImage":false,"tags":["php"]},{"name":"Lounge\u003cC++\u003e","id":10,"lastPost":1428609775,"posts":3580083,"users":[{"name":"Andy Prowl","id":1932150,"emailhash":"!http://i.stack.imgur.com/bgNyH.jpg?s=128\u0026g=1","lastPost":1428609739},{"name":"райтфолд","id":1804599,"emailhash":"!http://i.stack.imgur.com/ou7kb.jpg?s=128\u0026g=1","lastPost":1428609737},{"name":"Lightning Racis in Obrit","id":560648,"emailhash":"!http://i.stack.imgur.com/lAPmT.jpg?s=128\u0026g=1","lastPost":1428609699},{"name":"Jefffrey","id":493122,"emailhash":"8b7b64f33f32fe4fe713486feff4fda6","lastPost":1428609661},{"name":"khajvah","id":1527217,"emailhash":"090621e17b3ad752124c4d0290f768d7","lastPost":1428609151},{"name":"wilx","id":341065,"emailhash":"8e57fe4b0f7381288a8e1e4c6cd77a8e","lastPost":1428608733},{"name":"R. Martinho Fernandes","id":46642,"emailhash":"f64914b68ff9076e46156c07c96e890f","lastPost":1428607945}],"messages":[{"date":1428609775,"user":"райтфолд","userid":1804599}],"singleImage":false,"tags":["c++","c++11","c++14","c++-faq"]}]} 
+        };
+
+        StackExchange.chatAd.init(options);
+    });
+// -->
+</script>
+
+</div>  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/6491019?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">5</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/6491019/struct-sigaction-incomplete-error?lq=1" class="question-hyperlink">struct sigaction incomplete error</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/5679267?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/5679267/how-to-resolve-reg-eip-undeclared-first-use-in-this-function-error-on-linux-3?rq=1" class="question-hyperlink">How to resolve REG_EIP undeclared (First use in this function ) error on Linux 32 bit machine?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/5787039?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/5787039/how-to-replace-the-default-handler-with-user-defined-handler-in-linux-kernel-tha?rq=1" class="question-hyperlink">How to replace the default handler with user defined handler in Linux kernel that handles the exceptions generating core dump?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/6949025?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">27
+    </div>
+</a><a href="http://stackoverflow.com/questions/6949025/how-are-asynchronous-signal-handlers-executed-on-linux?rq=1" class="question-hyperlink">How are asynchronous signal handlers executed on Linux?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/9572376?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/9572376/in-linux-c-c-which-system-calls-are-interruptable-i-e-errno-eintr?rq=1" class="question-hyperlink">In LINUX C/C++, which system calls are interruptable (i.e. errno == EINTR)?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/10350363?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/10350363/error-while-compiling-linux-kernel-2-6-39-4?rq=1" class="question-hyperlink">Error while compiling Linux kernel 2.6.39.4</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/18179664?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/18179664/information-regarding-internal-signal-handler-table-in-linux?rq=1" class="question-hyperlink">Information regarding Internal signal handler table in Linux?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/21068714?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">5
+    </div>
+</a><a href="http://stackoverflow.com/questions/21068714/trap-all-accesses-to-an-address-range-linux?rq=1" class="question-hyperlink">Trap all accesses to an address range (Linux)</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/24463176?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/24463176/linux-signal-handling-flush-is-called-suddenly-due-to-unknown-signal-generati?rq=1" class="question-hyperlink">Linux signal handling : .flush is called suddenly due to unknown signal generation</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/26411341?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/26411341/error-compiling-linux-kernel-module-using-custom-system-calls?rq=1" class="question-hyperlink">Error compiling Linux kernel module using custom system calls</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/85862/why-did-greedo-shoot-first" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why did Greedo shoot first?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-boardgames" title="Board &amp; Card Games Stack Exchange"></div><a href="http://boardgames.stackexchange.com/questions/23736/if-an-effect-would-prevent-a-spell-from-doing-damage-does-it-continue-to-preven" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:147 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If an effect would prevent a spell from doing damage, does it continue to prevent that damage after the spell changes zones?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/13961/deceptive-diseases" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Deceptive diseases
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/46625/student-loan-payments-and-opportunity-costs" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Student loan payments and opportunity costs
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-parenting" title="Parenting Stack Exchange"></div><a href="http://parenting.stackexchange.com/questions/19359/i-dont-want-to-be-a-father" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:228 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    I don't want to be a father
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/85777/who-are-the-seven-kings" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Who are the "seven kings"?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/43237/should-i-drop-my-paper-after-finding-a-recent-very-similar-paper" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should I drop my paper after finding a recent very similar paper?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/13847/design-a-non-computerized-biometric-door" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Design a non-computerized biometric door
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/238248/an-adjective-or-a-single-word-that-means-something-is-new-and-different-at-t" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    An Adjective or a single-word that means something is "new" and "different" at the same time
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-engineering" title="Engineering Stack Exchange"></div><a href="http://engineering.stackexchange.com/questions/2363/why-are-rear-wheels-not-placed-at-the-extreme-rear-of-a-bus" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:595 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why are rear wheels not placed at the extreme rear of a bus?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-gamedev" title="Game Development Stack Exchange"></div><a href="http://gamedev.stackexchange.com/questions/98059/how-can-i-quantify-a-drawn-lines-straightness" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:53 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I quantify a drawn line's straightness?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-biology" title="Biology Stack Exchange"></div><a href="http://biology.stackexchange.com/questions/31191/identifying-an-insect-looking-like-a-crumle" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:375 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Identifying an insect looking like a crumle
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-movies" title="Movies &amp; TV Stack Exchange"></div><a href="http://movies.stackexchange.com/questions/33113/black-and-white-old-movie" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:367 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Black and white old movie
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-cooking" title="Seasoned Advice"></div><a href="http://cooking.stackexchange.com/questions/56418/how-can-i-tell-the-difference-between-a-rabbit-and-a-cat" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:49 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I tell the difference between a rabbit and a cat?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-cstheory" title="Theoretical Computer Science Stack Exchange"></div><a href="http://cstheory.stackexchange.com/questions/31054/is-it-a-rule-that-discrete-problems-are-np-hard-and-continuous-problems-are-not" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:114 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it a rule that discrete problems are NP-hard and continuous problems are not?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-chemistry" title="Chemistry Stack Exchange"></div><a href="http://chemistry.stackexchange.com/questions/28454/fragmentation-of-phenyl-radical-cations-in-mass-spectrometry" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:431 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Fragmentation of phenyl radical cations in mass spectrometry
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-mathematica" title="Mathematica Stack Exchange"></div><a href="http://mathematica.stackexchange.com/questions/79390/how-to-switch-from-list-of-rules-to-association" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:387 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to switch from List of rules to Association?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/29543780/why-is-it-better-to-use-pointers-in-a-linked-list" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is it better to use pointers in a linked list?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/175066/why-cant-compton-scattering-happen-in-leading-order-of-perturbation-theory" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why can't Compton scattering happen in leading order of perturbation theory?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-crypto" title="Cryptography Stack Exchange"></div><a href="http://crypto.stackexchange.com/questions/24877/why-is-this-the-inverse-of-a-enigma-machine-rotor" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:281 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is this the inverse of a Enigma Machine rotor?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-dba" title="Database Administrators Stack Exchange"></div><a href="http://dba.stackexchange.com/questions/97397/why-is-a-new-user-able-to-create-tables-in-postgresql" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:182 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is a new user able to create tables in PostgreSQL?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/59336/does-a-roleplaying-game-that-uses-continuous-probability-exist" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does a roleplaying game that uses continuous probability exist?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-serverfault" title="Server Fault"></div><a href="http://serverfault.com/questions/681588/prevent-apache-from-starting-after-apt-get-install" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:2 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Prevent Apache from starting after apt-get install
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-salesforce" title="Salesforce Stack Exchange"></div><a href="http://salesforce.stackexchange.com/questions/71706/apex-trigger-giving-cannot-specify-id-in-an-insert-call-id-error" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:459 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Apex Trigger giving "cannot specify Id in an insert call: [Id]" error
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="http://stackoverflow.com/questions/8846047/compile-errors-using-signal-h-in-linux#" class="show-more js-show-more js-gps-track" data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+		</div>
+		<script>
+StackExchange.ready(function(){$.get('/posts/8846047/ivc/bcfe');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/8846047/ivc/bcfe" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-c</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (10)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.4.9.2460
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('c,linux,signals,system-calls,signal-handling');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|c|linux|signals|system-calls|signal-handling|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>                
+    
+<script type="text/javascript" src="./c - compile errors using signal.h in Linux - Stack Overflow_files/p"></script></body></html>

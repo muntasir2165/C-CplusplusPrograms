@@ -1,0 +1,88 @@
+# tests creating more than 16 images
+Image A 100 100 =
+lineTo 100 100
+lineTo -100 100
+End Image A
+Image B 100 110 =
+lineTo 100 100
+lineTo -100 100
+End Image B
+Image C 100 120 =
+lineTo 100 100
+lineTo -100 100
+End Image C
+Image D 100 130 =
+lineTo 100 100
+lineTo -100 100
+End Image D
+Image E 100 140 =
+lineTo 100 100
+lineTo -100 100
+End Image E
+Image F 100 150 =
+lineTo 100 100
+lineTo -100 100
+End Image F
+Image G 100 160 =
+lineTo 100 100
+lineTo -100 100
+End Image G
+Image H 100 170 =
+lineTo 100 100
+lineTo -100 100
+End Image H
+Image I 100 180 =
+lineTo 100 100
+lineTo -100 100
+End Image I
+Image J 100 190 =
+lineTo 100 100
+lineTo -100 100
+End Image J
+Image K 100 200 =
+lineTo 100 100
+lineTo -100 100
+End Image K
+Image L 100 210 =
+lineTo 100 100
+lineTo -100 100
+End Image L
+Image M 100 220 =
+lineTo 100 100
+lineTo -100 100
+End Image M
+Image N 100 230 =
+lineTo 100 100
+lineTo -100 100
+End Image N
+Image O 100 240 =
+lineTo 100 100
+lineTo -100 100
+End Image O
+Image P 100 250 =
+lineTo 100 100
+lineTo -100 100
+End Image P
+Image Q 100 260 =
+lineTo 100 100
+lineTo -100 100
+End Image Q
+draw A
+draw B
+draw C
+draw D
+draw E
+draw F
+draw G
+draw H
+draw I
+draw J
+draw K
+draw L
+draw M
+draw N
+draw O
+draw P
+draw Q
+child pause 5
+child end

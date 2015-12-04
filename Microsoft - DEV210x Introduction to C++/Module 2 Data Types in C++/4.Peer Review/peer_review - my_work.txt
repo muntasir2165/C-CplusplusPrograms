@@ -1,0 +1,14 @@
+First Name : String. 
+    Name would be a bunch of characters strung together and so, string would be the perfect data type.
+Street Address : String.
+    Street address would be a bunch of characters (numeric, letters and maybe some more) strung together and so, string would be the perfect data type.
+Birth Date : Int or String.
+    If we ask the user to enter their birth date like YYYYMMDD (e.g., 20011120 for 20th november 2001) or some other combination of the year, month and day, we can accept it as integer. However, we can also accept it as a string if we expect the format to be "20-11-2001" or "November 20 2001". It really depends on what we, the developer, would prefer.
+Zip/Postal Code : Int or String.
+    Some countries have four- or five-digit postal code and so, we can use Int or String for those. However, in places like US or Canada, the postal code is like "T5H 3G8" and so, a string would be the better choice for that. All in all, I would go with the string type just to be on the safe side.
+Bank Account Balance : Float or Double
+    Bank account balance can have numbers before and after the decimal place and so a type that accommodates decimal values would be appropriate. Float would typically be more than sufficient for poor people like me but since double is all the rage nowadays, I might just choose double instead.
+Months of the Year : enum
+    I will put all the months of the year into a enum data type like the following:
+                             enum months { January = 1, February, March, ... };
+    This will ensure that the enum months type would only have 12 allowed values for when the user tries to input one and otherwise, would result in error.
